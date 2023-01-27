@@ -1,17 +1,38 @@
+.footer_body{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
 .main{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     flex-grow: 1;
+    flex-wrap: wrap;
 }
 .item{
     padding:0 1rem;
+    color: #A2A2A2;
+    font-size: 12px;
+    padding: 0;
+    flex-basis: auto;
+    margin: 0 8px 12px;
 }
 .footer{
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    color: #A2A2A2;
+}
+.footer_in{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 12px;
 }
 .footer_select{
-    padding: 1rem;
     display: flex;
     align-content: center;
+    margin-right: 15px;
 }

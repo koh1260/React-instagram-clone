@@ -1,17 +1,21 @@
-input{
+.login_input{
     width: 268px;
-    height: 38px;
+    height: 35px;
     margin: 0 40px 6px;
+    border: 1px solid #DBDBDB;
 }
 .login_body{
     margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: cente;
 }
 .main{
     border: 1.5px solid #DBDBDB;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 350px;
+    max-width: 350px;
     height: 400px;
     background-color: white;
 }
@@ -21,23 +25,64 @@ input{
     margin: 7px;
 }
 .div_login_btn{
-    height: 30px;
-    width: 278px;
-    font-size: 14spx;
+    height: 32px;
+    width: 275px;
+    font-size: 14px;
+    font-weight: 600;
     color: white;
     background-color: #66BCF2;
     border: 0;
-    border-radius: 5px;
+    border-radius: 8px;
+}
+.or{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.or_text{
+    font-size: 14px;
+    color: #A2A2A2;
+    font-weight: 500;
+    margin: 0 6px;
+}
+.line{
+    height: 1px;
+    width: 110px;
+    background-color: #A2A2A2;
+    border: 0.45em solid white;
+}
+.facebook_login_par{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 .facebook_login{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     text-align: center;
 }
+.facebook_login_logo{
+    margin-right: 7px;
+}
 .facebook_login_btn{
+    display: flex;
+    flex-direction: row;
+
+    border: 0px;
+    background-color: white;
+}
+.facebook_login_text{
     border: 0;
     background-color: white;
     color: #3E588C;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 800;
+}
+.facebook_logo{
+    color: #3E588C;
 }
 .lose_password{
     margin-top: 15px;
@@ -69,8 +114,10 @@ input{
     background-color: white;
 }
 .sign_up_text{
-    margin: 25px;
+    margin: 22px;
     font-weight: 350;
+    font-size: 14px;
+    font-weight: 40;
 }
 .sign_up_text_link{
     text-decoration: none;
@@ -78,5 +125,36 @@ input{
     font-weight: 600;
 }
 .logo{
-    margin: 20px 0;
+    margin: 25px 0;
+    width: 175px;
+    height: 51;
+}
+.app_download{
+    display: flex;
+    flex-direction: column;
+}
+.app_download_text_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.app_download_text{
+    margin: 7px 0;
+    color: black;
+    font-size: 14px;
+}
+.store{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}
+.appstore_icon{
+    width: 134px;
+    height: 40px;
+    margin-right: 10px;
+}
+.googleplay_icon{
+    width: 134px;
+    height: 40px;
 }

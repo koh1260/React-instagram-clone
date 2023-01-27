@@ -1,7 +1,10 @@
+.article_body{
+    display: flex;
+    flex-direction: column;
+}
 .main{
     display: flex;
     justify-content: center;
-    flex-grow: 3;
     margin-top: 40px;
-    background-color: #FAFAFA;
+    padding-bottom: 20px;
 }

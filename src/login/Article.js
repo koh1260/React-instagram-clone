@@ -4,13 +4,15 @@ import styles from "./Article.module.css"
 
 function Article() {
   return (
-    <div className={styles.main}>
+    <div className={styles.article_body}>
+        <div className={styles.main}>
       <div>
         <Animation />
       </div>
       <div>
         <Login />
       </div>
+    </div>
     </div>
   );
 }

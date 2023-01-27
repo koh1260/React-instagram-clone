@@ -5,10 +5,10 @@ import styles from "./LoginPage.module.css"
 function LoginPage(){
     return (
       <div className={styles.main}>
-        <div className={styles.item1}>
+        <div className={styles.article}>
           <Article />
         </div>
-        <div className={styles.item2}>
+        <div className={styles.footer}>
           <Footer />
         </div>
       </div>

@@ -1,8 +1,12 @@
-import styles from "./Login.module.css"
-import { FaBeer } from "react-icons/fa";
-
+import { useState } from "react";
+import styles from "./Login.module.css";
+import { GrFacebook } from "react-icons/gr";
+import instaLogo from "../img/instagram_icon.png"
 
 function Login() {
+ // URL로 이미지 넣기
+  const [image, setImage] = useState();
+
   function onClick(event) {
     event.preventDefault();
   }
@@ -10,8 +14,8 @@ function Login() {
   return (
     <div className={styles.login_body}>
       <div className={styles.main}>
-        <div className={styles.logo}>
-          <h1>Instagram</h1>
+        <div>
+          <img  className={styles.logo} src={instaLogo}/>
         </div>
 
         {/* 로그인 ~ 비밀번호 찾기 */}
@@ -26,25 +30,39 @@ function Login() {
             <div className={styles.login}>
               <div>
                 <input
+                  className={styles.login_input}
                   type="text"
                   placeholder="전화번호, 사용자 이름 또는 이메일"
                 />
               </div>
               <div>
-                <input type="text" placeholder="비밀번호" />
+                <input
+                  className={styles.login_input}
+                  type="text"
+                  placeholder="비밀번호"
+                />
               </div>
               <div className={styles.div_login}>
                 <button className={styles.div_login_btn}>로그인</button>
               </div>
-              <div>
-                <h4>---------- 또는 ----------</h4>
+              <div className={styles.or}>
+                <span className={styles.line}></span>
+                <span className={styles.or_text}>또는</span>
+                <span className={styles.line}></span>
               </div>
             </div>
 
-            <div className={styles.facebook_login}>
-              <span className={styles.facebook_login_btn}>
-                Facebook으로 로그인
-              </span>
+            <div className={styles.facebook_login_par}>
+              <div className={styles.facebook_login}>
+                <button className={styles.facebook_login_btn}>
+                  <span className={styles.facebook_login_logo}>
+                    <GrFacebook className={styles.facebook_logo} size="15" />
+                  </span>
+                  <span className={styles.facebook_login_text}>
+                    Facebook으로 로그인
+                  </span>
+                </button>
+              </div>
             </div>
           </form>
         </div>
@@ -59,18 +77,31 @@ function Login() {
       <div className={styles.sign_up}>
         <p className={styles.sign_up_text}>
           계정이 없으신가요?
-          <a className={styles.sign_up_text_link} href="#"> 가입하기</a>
+          <a className={styles.sign_up_text_link} href="#">
+            {" "}
+            가입하기
+          </a>
         </p>
       </div>
 
       {/* 앱 다운로드 */}
-      <div>
-        <div>
-          <p>앱을 다운로드하세요.</p>
+      <div className={styles.app_download}>
+        <div className={styles.app_download_text_div}>
+          <span className={styles.app_download_text}>앱을 다운로드하세요.</span>
         </div>
-        <div>
-          <a href="#">App Store</a>
-          <a href="#">Google Play</a>
+        <div className={styles.store}>
+          <a href="#">
+            <img
+              className={styles.appstore_icon}
+              src="https://static.cdninstagram.com/rsrc.php/v3/yi/r/cWx_hQBPmbo.png"
+            />
+          </a>
+          <a href="#">
+            <img
+              className={styles.googleplay_icon}
+              src="https://static.cdninstagram.com/rsrc.php/v3/ye/r/UtJtFmFLCiD.png"
+            />
+          </a>
         </div>
       </div>
     </div>
