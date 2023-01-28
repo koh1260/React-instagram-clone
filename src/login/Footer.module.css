@@ -11,6 +11,7 @@
     flex-wrap: wrap;
 }
 .item{
+    text-decoration: none;
     padding:0 1rem;
     color: #A2A2A2;
     font-size: 12px;

@@ -1,0 +1,35 @@
+.main {}
+
+.side_bar {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-right: 1px solid #DBDBDB;
+    height: 95vh;
+    position: fixed;
+    width: 204px;
+}
+.side_bar_logo{
+    padding: 18px 5px;
+    margin-bottom: 4px;
+}
+.menus {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 9px;
+    margin: 4px 0;
+}
+.menu_icon{
+    width: 25px;
+    height: 25px;
+}
+.menu_text{
+    padding-left: 16px;
+    font-weight: 400;
+}
