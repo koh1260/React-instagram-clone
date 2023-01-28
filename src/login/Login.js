@@ -2,20 +2,26 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png"
+import { Link } from "react-router-dom";
 
 function Login() {
- // URL로 이미지 넣기
-  const [image, setImage] = useState();
+    const [inputId, setInputId] = useState("");
+    const [inputPw, setInputPw] = useState("");
 
-  function onClick(event) {
-    event.preventDefault();
-  }
+    function handleInputId(event){
+        setInputId(event.target.value);
+        console.log("ID: ",event.target.value);
+    }
+    function handleInputPw(event){
+        setInputPw(event.target.value);
+        console.log("PW: ", event.target.value);
+    }
 
   return (
     <div className={styles.login_body}>
       <div className={styles.main}>
         <div>
-          <img  className={styles.logo} src={instaLogo}/>
+          <img className={styles.logo} src={instaLogo} />
         </div>
 
         {/* 로그인 ~ 비밀번호 찾기 */}
@@ -25,6 +31,7 @@ function Login() {
             onSubmit={(event) => {
               event.preventDefault();
               console.log("submit");
+              <Link to="/home" />;
             }}
           >
             <div className={styles.login}>
@@ -32,6 +39,7 @@ function Login() {
                 <input
                   className={styles.login_input}
                   type="text"
+                  onChange={handleInputId}
                   placeholder="전화번호, 사용자 이름 또는 이메일"
                 />
               </div>
@@ -39,11 +47,14 @@ function Login() {
                 <input
                   className={styles.login_input}
                   type="text"
+                  onChange={handleInputPw}
                   placeholder="비밀번호"
                 />
               </div>
               <div className={styles.div_login}>
-                <button className={styles.div_login_btn}>로그인</button>
+                <Link to="/home">
+                  <button className={styles.div_login_btn}>로그인</button>
+                </Link>
               </div>
               <div className={styles.or}>
                 <span className={styles.line}></span>

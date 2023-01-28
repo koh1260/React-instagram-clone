@@ -5,6 +5,7 @@ import {
   Link,
 } from "react-router-dom";
 import LoginPage from "./routes/LoginPage";
+import Home from "./routes/Home";
 
 
 function App() {
@@ -13,9 +14,12 @@ function App() {
       path: "/",
       element: <LoginPage />
     },
+    {
+      path: "/home",
+      element: <Home />
+    }
   ]);
 
   return <RouterProvider router={router} />;
 }
-
 export default App;
