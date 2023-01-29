@@ -1,17 +1,35 @@
 .main{
-
+    margin: 1rem 0;
 }
-.storys{
-    display: flex;
+.post{
     border: 1px #DBDBDB solid;
     border-radius: 7px;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
 }
-.story_list_outer{
-    display: flex;
-}
-.story_list{
+.profile{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    margin: 0.5rem;
+}
+.profile_image{
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 70px;
+}
+.user_id{
+    flex-grow: 1;
+}
+.contents{
+    display: flex;
+    flex-direction: column;
+}
+.utils{
+    display: flex;
+    flex-direction: row;
+}
+.util{
+    padding: 0.6rem 0 0.6rem 0.6rem;
+}
+.book_mark{
+    flex-grow: 1;
 }

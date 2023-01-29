@@ -5,7 +5,7 @@ ul{
     display: flex;
     flex-direction: row;
 }
-.PostAndRecommand{
+.post_and_recommand{
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
@@ -14,9 +14,24 @@ ul{
     justify-content: center;
     margin-left: 204px;
 }
+.story_and_post{
+    display: flex;
+    flex-direction: column;
+    margin-right: 32px;
+}
+.storys{
+    display: flex;
+    border: 1px #DBDBDB solid;
+    border-radius: 7px;
+    margin-top: 1.7rem;
+}
+.story_list_outer{
+    display: flex;
+}
+.story_list{
+    display: flex;
+    flex-direction: row;
+}
 .post{
 
-}
-.frd_recommand{
-    
 }

@@ -1,38 +1,63 @@
 import styles from "./Post.module.css";
-import Story from "./Story";
+import img from "../img/profile.jpeg";
+import {BiDotsHorizontalRounded} from "react-icons/bi";
+import {AiOutlineHeart} from "react-icons/ai";
+import {HiOutlineChatBubbleOvalLeft} from "react-icons/hi2"
+import {IoPaperPlaneOutline} from "react-icons/io5";
+import {BsBookmark} from "react-icons/bs"
 
-function Post(){
-    const userList = [
-        {
-            id: "koh1260",
-        },
-        {
-            id: "a001206",
-        },
-        {
-            id: "lucifer_5050",
-        },
-        {
-            id: "usung_0421",
-        },
-        {
-            id: "doori",
-        },
-        {
-            id: "qwerty",
-        },
-    ];
+function Post({userId, postImage, postLikes, createAt}){
+    const postTimeCalc = (time) => {
+      if (time >= 3600) return `${Math.floor(time / 3600)}시간 전`;
+      if (time >= 60) return `${Math.floor(time / 60)}분 전`;
+      return `${time}초 전`;
+    }
 
     return (
-        <div className={styles.main}>
-            <div className={styles.storys}>
-                <div className={styles.story_list_outer}>
-                    <ul className={styles.story_list}>
-                        {userList.map(user => <Story userId={user.id} />)}
-                    </ul>
-                </div>
+      <div className={styles.main}>
+        <div className={styles.post}>
+          <div className={styles.profile}>
+            <div>
+              <img
+                className={styles.profile_image}
+                src={img}
+              />
             </div>
+            <div className={styles.user_id}>{userId}</div>
+            <div>
+              <BiDotsHorizontalRounded />
+            </div>
+          </div>
+
+          <div className={styles.contents}>
+            <img 
+                src={postImage.postImg}
+                style={{
+                    width:"100px",
+                    height: "100px",
+                }}
+                />
+          </div>
+          <div className={styles.utils}>
+            <div>
+                <AiOutlineHeart  className={styles.util}/>
+            </div>
+            <div>
+                <HiOutlineChatBubbleOvalLeft  className={styles.util}/>
+            </div>
+            <div>
+                <IoPaperPlaneOutline  className={styles.util}/>
+            </div>
+            <div>
+                <BsBookmark  className={`${styles.util} ${styles.book_mark}`}/>
+            </div>
+          </div>
+          <div>{`좋아요 ${postLikes}개`}</div>
+          <div>댓글</div>
+          <div>{postTimeCalc(createAt)}</div>
+          <div>댓글 작성</div>
         </div>
-    )   
+      </div>
+    );   
 }
 export default Post;
