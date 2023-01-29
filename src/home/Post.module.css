@@ -1,0 +1,17 @@
+.main{
+
+}
+.storys{
+    display: flex;
+    border: 1px #DBDBDB solid;
+    border-radius: 7px;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+.story_list_outer{
+    display: flex;
+}
+.story_list{
+    display: flex;
+    flex-direction: row;
+}

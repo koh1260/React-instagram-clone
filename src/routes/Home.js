@@ -10,10 +10,10 @@ function Home(){
           <SideBar />
         </div>
         <div className={styles.PostAndRecommand}>
-          <div>
+          <div className={styles.post}>
             <Post />
           </div>
-          <div>
+          <div className={styles.frd_recommand}>
             <FrdRecommand />
           </div>
         </div>

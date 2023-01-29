@@ -41,6 +41,7 @@ function Login() {
                   type="text"
                   onChange={handleInputId}
                   placeholder="전화번호, 사용자 이름 또는 이메일"
+                  value={inputId}
                 />
               </div>
               <div>
@@ -49,6 +50,7 @@ function Login() {
                   type="text"
                   onChange={handleInputPw}
                   placeholder="비밀번호"
+                  value={inputPw}
                 />
               </div>
               <div className={styles.div_login}>

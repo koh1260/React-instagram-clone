@@ -1,0 +1,12 @@
+.story{
+    display: flex;
+    flex-direction: column;
+}
+.story_image{
+    border: 2px blueviolet solid;
+    border-radius: 70px;
+}
+.story_btn{
+    border: 0;
+    background-color: transparent;
+}

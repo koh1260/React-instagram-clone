@@ -1,13 +1,14 @@
 import styles from "./SideBar.module.css";
-import instaLogo from "../img/instagram_icon.png"
-import {GrSearch}from "react-icons/gr"
-import {AiOutlineCompass} from "react-icons/ai"
-import {IoPaperPlaneOutline} from "react-icons/io5"
-import {AiOutlineHeart} from "react-icons/ai"
-import {FiPlusSquare} from "react-icons/fi"
-import {CgProfile} from "react-icons/cg"
-import {GrHomeRounded} from "react-icons/gr"
-import {RxHamburgerMenu} from "react-icons/rx"
+import instaLogo from "../img/instagram_icon.png";
+import {GrSearch}from "react-icons/gr";
+import {AiOutlineCompass} from "react-icons/ai";
+import {IoPaperPlaneOutline} from "react-icons/io5";
+import {AiOutlineHeart} from "react-icons/ai";
+import {FiPlusSquare} from "react-icons/fi";
+import {CgProfile} from "react-icons/cg";
+import {GrHomeRounded} from "react-icons/gr";
+import {RxHamburgerMenu} from "react-icons/rx";
+import {BiMoviePlay} from "react-icons/bi";
 
 function SideBar() {
   return (
@@ -44,7 +45,7 @@ function SideBar() {
 
           <div className={styles.menu}>
             <span>
-              <AiOutlineCompass className={styles.menu_icon} />
+              <BiMoviePlay className={styles.menu_icon} />
             </span>
             <span className={styles.menu_text}>릴스</span>
           </div>
