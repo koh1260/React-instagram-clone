@@ -17,11 +17,8 @@ function Post({userId, postImage, postLikes, createAt}){
       <div className={styles.main}>
         <div className={styles.post}>
           <div className={styles.profile}>
-            <div>
-              <img
-                className={styles.profile_image}
-                src={img}
-              />
+            <div className={styles.profile_image_outer}>
+              <img className={styles.profile_image} src={img} />
             </div>
             <div className={styles.user_id}>{userId}</div>
             <div>
@@ -31,25 +28,21 @@ function Post({userId, postImage, postLikes, createAt}){
 
           <div className={styles.contents}>
             <img 
-                src={postImage.postImg}
-                style={{
-                    width:"100px",
-                    height: "100px",
-                }}
-                />
+              className={styles.content_image} 
+              src={postImage.postImg} />
           </div>
           <div className={styles.utils}>
             <div>
-                <AiOutlineHeart  className={styles.util}/>
+              <AiOutlineHeart className={styles.util} />
             </div>
             <div>
-                <HiOutlineChatBubbleOvalLeft  className={styles.util}/>
+              <HiOutlineChatBubbleOvalLeft className={styles.util} />
             </div>
             <div>
-                <IoPaperPlaneOutline  className={styles.util}/>
+              <IoPaperPlaneOutline className={styles.util} />
             </div>
-            <div>
-                <BsBookmark  className={`${styles.util} ${styles.book_mark}`}/>
+            <div className={styles.book_mark_outer}>
+              <BsBookmark className={`${styles.util} ${styles.book_mark}`} />
             </div>
           </div>
           <div>{`좋아요 ${postLikes}개`}</div>

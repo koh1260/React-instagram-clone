@@ -8,6 +8,11 @@ div{
 .story_image{
     border: 2px blueviolet solid;
     border-radius: 70px;
+    width: 2.8rem;
+    height: 2.8rem;
+}
+.user_id{
+    font-size: 0.5rem;
 }
 .story_btn{
     border: 0;

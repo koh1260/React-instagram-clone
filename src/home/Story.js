@@ -8,12 +8,9 @@ function Story({userId, image}){
             <img 
                 className={styles.story_image}
                 src={image.profileImg} 
-                style={{
-                height: "56px",
-                width: "56px",
-            }}/>
+                />
           </div>
-          <div>{userId}</div>
+          <div className={styles.user_id}>{userId}</div>
         </button>
       </li>
     );

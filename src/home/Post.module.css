@@ -1,7 +1,10 @@
 .main{
     margin: 1rem 0;
+    width: 23.6rem;
 }
 .post{
+    display: flex;
+    flex-direction: column;
     border: 1px #DBDBDB solid;
     border-radius: 7px;
 }
@@ -11,10 +14,16 @@
     align-items: center;
     margin: 0.5rem;
 }
+.profile_image_outer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .profile_image{
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 1.5rem;
+    height: 1.5rem;
     border-radius: 70px;
+    margin-right: 0.7rem;
 }
 .user_id{
     flex-grow: 1;
@@ -22,14 +31,29 @@
 .contents{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 15.7rem;
+}
+.content_image{
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
 .utils{
     display: flex;
     flex-direction: row;
 }
 .util{
+    width: 1rem;
     padding: 0.6rem 0 0.6rem 0.6rem;
 }
-.book_mark{
+.book_mark_outer{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
     flex-grow: 1;
+}
+.book_mark{
+    padding-right: 0.6rem;
 }

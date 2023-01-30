@@ -1,0 +1,96 @@
+.main{
+    width: 16rem;
+}
+.recommand{
+    display: flex;
+    flex-direction: column;
+}
+.my_profile{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3.1rem;
+}
+.my_profile_image_outer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 0.9rem;
+}
+.my_profile_image{
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 70px;
+}
+.id_and_name{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+    flex-grow: 1;
+}
+.id{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+}
+.name{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
+    color: #C7C7C7;
+}
+.change{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.change_btn{
+    font-size: 0.5rem;
+    border: 0;
+    background-color: transparent;
+    color: #0095F6;
+}
+.friends_recommand_all{
+    display: flex;
+    flex-direction: row;
+    margin: 0.7rem 0;
+}
+.friends_recommand_all_text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: #B6B6B6;
+}
+.view_all_btn_outer{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    flex-grow: 1;
+}
+.view_all_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0.5rem;
+    border: 0;
+    background-color: transparent;
+    color: black;
+}
+.more_informations{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.information{
+    list-style: none;
+    color: #C7C7C7;
+    font-size: 0.5rem;
+    padding-right: 0.3rem;
+}
+.insta_meta{
+    color: #C7C7C7;
+    font-size: 0.5rem;
+}

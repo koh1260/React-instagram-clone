@@ -24,6 +24,7 @@ ul{
     border: 1px #DBDBDB solid;
     border-radius: 7px;
     margin-top: 1.7rem;
+    width: 23.6rem;
 }
 .story_list_outer{
     display: flex;
@@ -31,7 +32,4 @@ ul{
 .story_list{
     display: flex;
     flex-direction: row;
-}
-.post{
-
 }
