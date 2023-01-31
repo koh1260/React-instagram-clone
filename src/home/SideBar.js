@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./SideBar.module.css";
 import instaLogo from "../img/instagram_icon.png";
 import {GrSearch}from "react-icons/gr";
@@ -9,8 +10,12 @@ import {CgProfile} from "react-icons/cg";
 import {GrHomeRounded} from "react-icons/gr";
 import {RxHamburgerMenu} from "react-icons/rx";
 import {BiMoviePlay} from "react-icons/bi";
+import {AiOutlineInstagram} from "react-icons/ai";
+import { useMediaQuery } from "react-responsive";
 
 function SideBar() {
+
+
   return (
     <div className={styles.main}>
       <div className={styles.side_bar}>
@@ -24,9 +29,9 @@ function SideBar() {
         </div>
 
         <div className={styles.menus}>
-          <div className={styles.menu}>
+          <div onClick={(i)=>console.log(i)} className={styles.menu}>
             <span>
-              <GrHomeRounded className={styles.menu_icon}/>
+              <GrHomeRounded className={styles.menu_icon} />
             </span>
             <span className={styles.menu_text}>홈</span>
           </div>
@@ -77,10 +82,10 @@ function SideBar() {
         </div>
 
         <div className={styles.menu}>
-            <span>
-                <RxHamburgerMenu className={styles.menu_icon}/>
-            </span>
-            <span className={styles.menu_text}>더 보기</span>
+          <span>
+            <RxHamburgerMenu className={styles.menu_icon} />
+          </span>
+          <span className={styles.menu_text}>더 보기</span>
         </div>
       </div>
     </div>

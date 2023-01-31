@@ -6,7 +6,7 @@ import {HiOutlineChatBubbleOvalLeft} from "react-icons/hi2"
 import {IoPaperPlaneOutline} from "react-icons/io5";
 import {BsBookmark} from "react-icons/bs"
 
-function Post({userId, postImage, postLikes, createAt}){
+function Post({userId, image, content, likes, createAt, comment}){
     const postTimeCalc = (time) => {
       if (time >= 3600) return `${Math.floor(time / 3600)}시간 전`;
       if (time >= 60) return `${Math.floor(time / 60)}분 전`;
@@ -29,7 +29,7 @@ function Post({userId, postImage, postLikes, createAt}){
           <div className={styles.contents}>
             <img 
               className={styles.content_image} 
-              src={postImage.postImg} />
+              src={image} />
           </div>
           <div className={styles.utils}>
             <div>
@@ -45,8 +45,12 @@ function Post({userId, postImage, postLikes, createAt}){
               <BsBookmark className={`${styles.util} ${styles.book_mark}`} />
             </div>
           </div>
-          <div>{`좋아요 ${postLikes}개`}</div>
-          <div>댓글</div>
+          <div>{`좋아요 ${likes}개`}</div>
+          <div>
+            <span>{userId}</span>
+            <span>{content}</span>
+          </div>
+          {comment.length ? (<div>{`댓글 ${comment.length}개 모두 보기`}</div>) : null}
           <div>{postTimeCalc(createAt)}</div>
           <div>댓글 작성</div>
         </div>

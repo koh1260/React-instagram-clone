@@ -7,7 +7,7 @@ function Story({userId, image}){
           <div>
             <img 
                 className={styles.story_image}
-                src={image.profileImg} 
+                src={image} 
                 />
           </div>
           <div className={styles.user_id}>{userId}</div>
