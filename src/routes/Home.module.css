@@ -33,3 +33,19 @@ ul{
     display: flex;
     flex-direction: row;
 }
+
+@media (max-width: 555px){
+    .side_bar{
+        display: none;
+    }
+    .frd_recommand{
+        display: none;
+    }
+    .post_and_recommand{
+        margin-left: 0;
+        justify-content: center;
+    }
+    .story_and_post{
+        margin-right: 0;
+    }
+}

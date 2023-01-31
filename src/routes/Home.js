@@ -12,7 +12,7 @@ function Home() {
 
   return (
     <div className={styles.main}>
-      <div>
+      <div className={styles.side_bar}>
         <SideBar />
       </div>
       <div className={styles.post_and_recommand}>
