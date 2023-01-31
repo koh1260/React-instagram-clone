@@ -12,7 +12,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 0.5rem;
+    padding: 0.5rem;
+    border-bottom: 1px #DBDBDB solid;
 }
 .profile_image_outer{
     display: flex;
@@ -32,7 +33,8 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 15.7rem;
+    height: 23.6rem;
+    border-bottom: 1px #DBDBDB solid;
 }
 .content_image{
     flex-grow: 1;
@@ -40,14 +42,24 @@
     width: 100%;
     object-fit: contain;
 }
+.post_footer{
+    padding: 0 0.6rem;
+    display: flex;
+    flex-direction: column;
+}
 .utils{
     display: flex;
     flex-direction: row;
 }
+.util_outer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .util{
     width: 1.2rem;
     height: 1.2rem;
-    padding: 0.6rem 0 0.6rem 0.6rem;
+    padding: 0.6rem 0.6rem 0.6rem 0;
 }
 .book_mark_outer{
     display: flex;
@@ -56,5 +68,49 @@
     flex-grow: 1;
 }
 .book_mark{
-    padding-right: 0.6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding-right: 0;
+}
+.likes_count{
+    font-size: 0.75rem;
+}
+.post_user_and_content{
+    font-size:  0.75rem;
+    margin: 0.4rem 0 0.3rem 0;
+}
+.post_user{
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+.content{
+    font-weight: 350;
+}
+.comments_count{
+    color: #8E8E8E;
+    font-size: 0.75rem;
+}
+.create_at{
+    color: #8E8E8E;
+    font-size: 0.2rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.3rem;
+}
+.comment_icon_outer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 0.2rem;
+}
+.comment_writing{
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0.6rem;
+    border-top: 1px #DBDBDB solid;
+}
+.comment_input{
+    border: 0;
+    background-color: transparent;
+    font-size: 0.8rem;
 }

@@ -6,14 +6,14 @@ function FrdRecommand(){
     return (
       <div className={styles.main}>
         <div className={styles.recommand}>
-          {/* 내 프로팔 */}
+          {/* 내 프로필 */}
           <div className={styles.my_profile}>
             <div className={styles.my_profile_image_outer}>
               <img className={styles.my_profile_image} src={img} />
             </div>
             <div className={styles.id_and_name}>
-              <div className={styles.id}>id</div>
-              <div className={styles.name}>name</div>
+              <div className={styles.id}>a00126</div>
+              <div className={styles.name}>두리</div>
             </div>
             <div className={styles.change}>
               <button className={styles.change_btn}>전환</button>
