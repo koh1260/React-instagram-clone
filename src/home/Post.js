@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./Post.module.css";
 import img from "../img/profile.jpeg";
 import {BiDotsHorizontalRounded} from "react-icons/bi";
@@ -6,12 +7,20 @@ import {HiOutlineChatBubbleOvalLeft} from "react-icons/hi2"
 import {IoPaperPlaneOutline} from "react-icons/io5";
 import {BsBookmark} from "react-icons/bs"
 import {VscSmiley} from "react-icons/vsc"
+import CommentModal from "./CommentModal";
 
 function Post({userId, image, content, likes, createAt, comment}){
+    const [openCommentModal, setOpenCommentModal] = useState(false);
+
     const postTimeCalc = (time) => {
       if (time >= 3600) return `${Math.floor(time / 3600)}시간 전`;
       if (time >= 60) return `${Math.floor(time / 60)}분 전`;
       return `${time}초 전`;
+    }
+
+    function openAllComment(){
+      setOpenCommentModal(true);
+      console.log(openCommentModal);
     }
 
     return (
@@ -37,12 +46,18 @@ function Post({userId, image, content, likes, createAt, comment}){
               <div className={styles.util_outer}>
                 <AiOutlineHeart className={styles.util} />
               </div>
+
               <div className={styles.util_outer}>
-                <HiOutlineChatBubbleOvalLeft className={styles.util} />
+                <HiOutlineChatBubbleOvalLeft 
+                  onClick={openAllComment}
+                  className={styles.util} />
+                  {openCommentModal ? <CommentModal setOpenCommentModal={setOpenCommentModal}/> : null}
               </div>
+
               <div className={styles.util_outer}>
                 <IoPaperPlaneOutline className={styles.util} />
               </div>
+
               <div className={styles.book_mark_outer}>
                 <BsBookmark className={`${styles.util} ${styles.book_mark}`} />
               </div>

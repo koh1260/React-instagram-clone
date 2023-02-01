@@ -4,10 +4,11 @@ div{
 .story{
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 .story_image{
     border: 2px blueviolet solid;
-    border-radius: 70px;
+    border-radius: 1.5rem;
     width: 2.8rem;
     height: 2.8rem;
 }

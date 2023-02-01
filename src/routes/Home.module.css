@@ -21,6 +21,7 @@ ul{
 }
 .storys{
     display: flex;
+    flex-grow: 1;
     border: 1px #DBDBDB solid;
     border-radius: 7px;
     margin-top: 1.7rem;
@@ -28,10 +29,12 @@ ul{
 }
 .story_list_outer{
     display: flex;
+    flex-grow: 1;
 }
 .story_list{
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
 }
 
 @media (max-width: 555px){
