@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styles from "./Post.module.css";
-import img from "../img/profile.jpeg";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
@@ -8,8 +7,9 @@ import { IoPaperPlaneOutline } from "react-icons/io5";
 import { BsBookmark } from "react-icons/bs";
 import { VscSmiley } from "react-icons/vsc";
 import CommentModal from "./CommentModal";
+import CommentWriting from "./CommentWriting";
 
-function Post({ userId, image, content, likes, createAt, comment }) {
+function Post({ user, image, content, likes, createAt, comments }) {
   const [openCommentModal, setOpenCommentModal] = useState(false);
 
   const postTimeCalc = (time) => {
@@ -27,9 +27,9 @@ function Post({ userId, image, content, likes, createAt, comment }) {
       <div className={styles.post}>
         <div className={styles.profile}>
           <div className={styles.profile_image_outer}>
-            <img className={styles.profile_image} src={img} />
+            <img className={styles.profile_image} src={user.profileImage} />
           </div>
-          <div className={styles.user_id}>{userId}</div>
+          <div className={styles.user_id}>{user.id}</div>
           <div>
             <BiDotsHorizontalRounded />
           </div>
@@ -55,7 +55,12 @@ function Post({ userId, image, content, likes, createAt, comment }) {
               {openCommentModal ? (
                 <CommentModal
                   setOpenCommentModal={setOpenCommentModal}
-                  image={image}
+                  user={user}
+                  content={content}
+                  likes={likes}
+                  createAt={createAt}
+                  comment={comments}
+                  postImage={image}
                 />
               ) : null}
             </div>
@@ -71,23 +76,20 @@ function Post({ userId, image, content, likes, createAt, comment }) {
 
           <div className={styles.likes_count}>{`좋아요 ${likes}개`}</div>
           <div className={styles.post_user_and_content}>
-            <span className={styles.post_user}>{userId}</span>
+            <span className={styles.post_user}>{user.id}</span>
             <span className={styles.content}>{content}</span>
           </div>
-          {comment.length ? (
+          {comments.length ? (
             <div
               className={styles.comments_count}
-            >{`댓글 ${comment.length}개 모두 보기`}</div>
+            >{`댓글 ${comments.length}개 모두 보기`}</div>
           ) : null}
           <div className={styles.create_at}>{postTimeCalc(createAt)}</div>
         </div>
 
         {/* 댓글 작성 */}
-        <div className={styles.comment_writing}>
-          <div className={styles.comment_icon_outer}>
-            <VscSmiley className={styles.comment_icon} />
-          </div>
-          <input className={styles.comment_input} placeholder="댓글 달기..." />
+        <div>
+          <CommentWriting />
         </div>
       </div>
     </div>

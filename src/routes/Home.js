@@ -30,12 +30,12 @@ function Home() {
             {postDummy.map((post) => (
               <Post
                 key={post.id}
-                userId={post.id}
+                user={post.user}
                 image={post.image}
                 likes={post.likes}
                 createAt={post.createAt}
                 content={post.content}
-                comment={post.comment}
+                comments={post.comments}
               />
             ))}
           </div>

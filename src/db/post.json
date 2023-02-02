@@ -1,11 +1,14 @@
 [
     {
-    "id": "lucifer._.5050",
+      "user" : {
+        "id": "lucifer._.5050",
+        "profileImage": "https://www.sciencetimes.co.kr/wp-content/uploads/2021/09/%EB%8D%A4%EB%B3%B4-%EC%95%A0%EB%8B%88-%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg" 
+      },
     "image": "https://w.namu.la/s/9290f744b12523b4a1e3ab503d8f5f5975da8ec57f2ff657a4fd68c9b087298066efacfbedac030931bebf39536b853d20506a9174b983fb911f7d53f197001ff20cadb39b21b9e8980069870b8c9322ba65382fdaec67adceb1bf8fb4648673e71282c452247fb95b8c8b979f5bd2da",
     "content": "나는야 달팽이",
     "likes": 530,
     "createAt" :12,
-    "comment": [
+    "comments": [
       {
         "id": "comment_user1",
         "content": "인정인정"
@@ -21,12 +24,15 @@
     ]
   },
   {
-    "id": "lucifer._.5050",
+    "user" : {
+      "id": "lucifer._.5050",
+      "profileImage": "https://www.sciencetimes.co.kr/wp-content/uploads/2021/09/%EB%8D%A4%EB%B3%B4-%EC%95%A0%EB%8B%88-%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg" 
+    },
     "image": "https://w.namu.la/s/41eda1b7d49ce5511b744e61d8a9df269dbd2efa0b7e6631b89b3fa48c8b4539f620e0ac529f1135d41982e08543d3dec757855ced7a96a4feca387f77d0e787bf0f9ffc44777d8cc34f52cb6d2fc5620cf740e9e415af2ee06ed8563d95e22dfe2922677115ba9a1959d8fefe5eb4d3",
     "content": "냠냠 맛있군",
     "likes": 5320,
     "createAt" :1122,
-    "comment": [
+    "comments": [
       {
         "id": "comment_user4",
         "content": "인정인정"
@@ -42,12 +48,15 @@
     ]
   },
   {
-    "id": "lucifer_5050",
+    "user" : {
+      "id": "koh1260",
+      "profileImage": "https://www.sciencetimes.co.kr/wp-content/uploads/2021/09/%EB%8D%A4%EB%B3%B4-%EC%95%A0%EB%8B%88-%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg" 
+    },
     "image": "https://w.namu.la/s/9290f744b12523b4a1e3ab503d8f5f5975da8ec57f2ff657a4fd68c9b087298066efacfbedac030931bebf39536b853d20506a9174b983fb911f7d53f197001ff20cadb39b21b9e8980069870b8c9322ba65382fdaec67adceb1bf8fb4648673e71282c452247fb95b8c8b979f5bd2da",
     "content": "나는야 달팽이",
     "likes": 50,
     "createAt" :120,
-    "comment": [
+    "comments": [
       {
         "id": "comment_user",
         "content": "인정인정"
@@ -55,12 +64,15 @@
   ]
   },
   {
-    "id": "usung_0421",
+    "user" : {
+      "id": "doori",
+      "profileImage": "https://www.sciencetimes.co.kr/wp-content/uploads/2021/09/%EB%8D%A4%EB%B3%B4-%EC%95%A0%EB%8B%88-%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg" 
+    },
     "image": "https://w.namu.la/s/9290f744b12523b4a1e3ab503d8f5f5975da8ec57f2ff657a4fd68c9b087298066efacfbedac030931bebf39536b853d20506a9174b983fb911f7d53f197001ff20cadb39b21b9e8980069870b8c9322ba65382fdaec67adceb1bf8fb4648673e71282c452247fb95b8c8b979f5bd2da",
     "content": "두리는 귀여워",
     "likes": 1330,
     "createAt" :183,
-    "comment": [
+    "comments": [
       {
         "id": "comment_user7",
         "content": "인정인정"
@@ -76,12 +88,15 @@
     ]
   },
   {
-    "id": "doori",
+    "user" : {
+      "id": "lucifer._.5050",
+      "profileImage": "https://www.sciencetimes.co.kr/wp-content/uploads/2021/09/%EB%8D%A4%EB%B3%B4-%EC%95%A0%EB%8B%88-%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg" 
+    },
     "image": "https://w.namu.la/s/9290f744b12523b4a1e3ab503d8f5f5975da8ec57f2ff657a4fd68c9b087298066efacfbedac030931bebf39536b853d20506a9174b983fb911f7d53f197001ff20cadb39b21b9e8980069870b8c9322ba65382fdaec67adceb1bf8fb4648673e71282c452247fb95b8c8b979f5bd2da",
     "content": "두리는 귀여워",
     "likes": 3212,
     "createAt" :6,
-    "comment": [
+    "comments": [
       {
         "id": "comment_user10",
         "content": "인정인정"
@@ -97,12 +112,15 @@
     ]
   },
   {
-    "id": "qwerty",
+    "user" : {
+      "id": "lucifer._.5050",
+      "profileImage": "https://www.sciencetimes.co.kr/wp-content/uploads/2021/09/%EB%8D%A4%EB%B3%B4-%EC%95%A0%EB%8B%88-%EC%9D%B4%EB%AF%B8%EC%A7%80.jpg" 
+    },
     "image": "https://w.namu.la/s/9290f744b12523b4a1e3ab503d8f5f5975da8ec57f2ff657a4fd68c9b087298066efacfbedac030931bebf39536b853d20506a9174b983fb911f7d53f197001ff20cadb39b21b9e8980069870b8c9322ba65382fdaec67adceb1bf8fb4648673e71282c452247fb95b8c8b979f5bd2da",
     "content": "두리는 귀여워",
     "likes": 234,
     "createAt" :47,
-    "comment": [
+    "comments": [
       {
         "id": "comment_user13",
         "content": "인정인정"

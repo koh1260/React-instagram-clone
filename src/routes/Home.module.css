@@ -37,18 +37,23 @@ ul{
     flex-grow: 1;
 }
 
-@media (max-width: 555px){
+@media (max-width: 775px){
     .side_bar{
         display: none;
     }
     .frd_recommand{
         display: none;
     }
-    .post_and_recommand{
-        margin-left: 0;
+    .post_and_recommand{        
+        margin-left: 0px;
         justify-content: center;
     }
     .story_and_post{
         margin-right: 0;
+    }
+}
+@media (max-width: 1265px) and (min-width:776px){
+    .post_and_recommand{
+        margin-left: 103px;
     }
 }
