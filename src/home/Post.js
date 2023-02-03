@@ -59,7 +59,7 @@ function Post({ user, image, content, likes, createAt, comments }) {
                   content={content}
                   likes={likes}
                   createAt={createAt}
-                  comment={comments}
+                  comments={comments}
                   postImage={image}
                 />
               ) : null}
