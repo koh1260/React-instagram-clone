@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./SignUp.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
+import axios from "axios";
 
 function Login({ setSignUpPage }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -37,18 +38,7 @@ function Login({ setSignUpPage }) {
     data.nickname = inputNickname;
     data.password = inputPw;
 
-    console.log(data);
-    console.log(typeof data);
-
-    const options = {
-      method: "POST",
-      headers: {
-          "Content-Type" : 'application/json',
-      },
-      body: JSON.stringify(data)
-    }
-
-    fetch("/register", options)
+    axios.post('/register', data).then(response => console.log(response));
   }
 
   return (
