@@ -4,7 +4,7 @@ import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png"
 import { Link } from "react-router-dom";
 
-function Login() {
+function Login({setSignUpPage}) {
     const [inputId, setInputId] = useState("");
     const [inputPw, setInputPw] = useState("");
 
@@ -15,6 +15,9 @@ function Login() {
     function handleInputPw(event){
         setInputPw(event.target.value);
         console.log("PW: ", event.target.value);
+    }
+    function handleSignUpPage(){
+      setSignUpPage(true);
     }
 
   return (
@@ -90,10 +93,11 @@ function Login() {
       <div className={styles.sign_up}>
         <p className={styles.sign_up_text}>
           계정이 없으신가요?
-          <a className={styles.sign_up_text_link} href="#">
-            {" "}
+          <button 
+            className={styles.sign_up_text_btn}
+            onClick={handleSignUpPage}>
             가입하기
-          </a>
+          </button>
         </p>
       </div>
 

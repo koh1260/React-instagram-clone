@@ -1,10 +1,14 @@
 import Login from "./Login";
+import SignUp from "./SignUp";
 import Animation from "./Animation";
-import styles from "./Article.module.css"
-import { useMediaQuery } from 'react-responsive'
+import styles from "./Article.module.css";
+import { useMediaQuery } from "react-responsive";
+import { useState } from "react";
 
 function Article() {
-    const responsivePage = useMediaQuery({query: '(min-width: 875px)'})
+  const [signUpPage, setSignUpPage] = useState(false);
+
+  const responsivePage = useMediaQuery({ query: "(min-width: 875px)" });
 
   return (
     <div className={styles.article_body}>
@@ -15,7 +19,11 @@ function Article() {
           </div>
         )}
         <div>
-          <Login />
+          {signUpPage ? (
+            <SignUp setSignUpPage={setSignUpPage} />
+          ) : (
+            <Login setSignUpPage={setSignUpPage} />
+          )}
         </div>
       </div>
     </div>

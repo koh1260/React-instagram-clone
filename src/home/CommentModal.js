@@ -72,6 +72,7 @@ function CommentModal({
             <div className={styles.comment}>
                 {comments.map(comment => (
                     <Comment 
+                        key={comment.user.id}
                         user={comment.user}
                         content={comment.content}
                         likes={comment.likes}

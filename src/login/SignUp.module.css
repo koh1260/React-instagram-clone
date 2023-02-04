@@ -1,10 +1,10 @@
-.login_input{
+.sign_up_input{
     width: 268px;
     height: 35px;
     margin: 0 40px 6px;
     border: 1px solid #DBDBDB;
 }
-.login_body{
+.sign_up_body{
     margin-left: 30px;
     display: flex;
     flex-direction: column;
@@ -15,17 +15,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 350px;
-    height: 400px;
+    width: 350px;
+    height: 575px;
     background-color: white;
 }
-.div_login{
+.div_sign_up{
     width: 100%;
     text-align: center;
     margin: 7px;
 }
-.div_login_btn{
-    height: 32px;
+.div_sign_up_btn{
+    height: 2.2rem;
     width: 275px;
     font-size: 14px;
     font-weight: 600;
@@ -34,12 +34,27 @@
     border: 0;
     border-radius: 8px;
 }
+.logo{
+    margin-top: 2rem;
+    width: 180px;
+    height: 51;
+}
+.under_logo_text_outer{
+    margin: 0 2rem;
+}
+.under_logo_text{
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 550;
+    color:  gray;
+    margin: 0.6rem 0;
+}
 .or{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 10px;
-    margin-bottom: 25px;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 .or_text{
     font-size: 14px;
@@ -68,44 +83,46 @@
     margin-right: 7px;
 }
 .facebook_login_btn{
-    display: flex;
-    flex-direction: row;
+    height: 2.2rem;
+    width: 275px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background-color: #0095F6;
+    border: 0;
+    border-radius: 8px;
 
-    border: 0px;
-    background-color: white;
 }
 .facebook_login_text{
     border: 0;
-    background-color: white;
-    color: #3E588C;
+    background-color: transparent;
+    color: white;
     font-size: 14px;
     font-weight: 800;
 }
 .facebook_logo{
-    color: #3E588C;
-}
-.lose_password{
-    margin-top: 15px;
-}
-.lose_password_text{
-    color: black;
-    text-decoration: none;
-    font-size: 12px;
+    color: white;
 }
 .form_div{
     display: flex;
     width: 100%;
 }
-.login_form{
+.sign_up_form{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
 }
-.login{
+.sign_up_form_inner{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 2rem;
+}
+.explain_text{
+    font-size: 0.75rem;
+    text-align: center;
+    color: #8C8C8C;
 }
 .sign_up{
     margin: 14px 0;
@@ -125,11 +142,6 @@
     font-weight: 600;
     border: 0;
     background-color: transparent;
-}
-.logo{
-    margin: 25px 0;
-    width: 175px;
-    height: 51;
 }
 .app_download{
     display: flex;

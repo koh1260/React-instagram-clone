@@ -1,15 +1,12 @@
-import SideBar from "home/SideBar";
-import Story from "home/Story";
-import Post from "home/Post";
-import FrdRecommand from "home/FrdRecommand";
+import SideBar from "../home/SideBar";
+import Story from "../home/Story";
+import Post from "../home/Post";
+import FrdRecommand from "../home/FrdRecommand";
 import styles from "./Home.module.css";
-import profileImg from "../img/profile.jpeg";
-import postImg from "../img/postImage.jpg";
 import postDummy from "../db/post.json";
 import storyDummy from "../db/story.json";
 
 function Home() {
-
   return (
     <div className={styles.main}>
       <div className={styles.side_bar}>
@@ -21,7 +18,11 @@ function Home() {
             <div className={styles.story_list_outer}>
               <ul className={styles.story_list}>
                 {storyDummy.map((story) => (
-                  <Story userId={story.id} image={story.profileImage} />
+                  <Story
+                    key={story.id}
+                    userId={story.id}
+                    image={story.profileImage}
+                  />
                 ))}
               </ul>
             </div>
@@ -29,7 +30,7 @@ function Home() {
           <div className={styles.post}>
             {postDummy.map((post) => (
               <Post
-                key={post.id}
+                key={post.user.id}
                 user={post.user}
                 image={post.image}
                 likes={post.likes}

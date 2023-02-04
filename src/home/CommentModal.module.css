@@ -83,6 +83,7 @@
     padding-top: 1.2rem;
     padding-left: 0.8rem;
     padding-right: 0.8rem;
+    flex-grow: 1;
 }
 .post_content{
     max-width: 100%;
@@ -109,7 +110,7 @@
 }
 .post_content_create_at{
     font-size: 0.7rem;
-    color: aqua;
+    color: #A3A3A3;
 }
 .post_content_profile_image{
     width: 1.8rem;
