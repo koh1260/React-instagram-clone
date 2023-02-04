@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from "./SignUp.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
-import { Link } from "react-router-dom";
 
 function Login({ setSignUpPage }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -12,18 +11,44 @@ function Login({ setSignUpPage }) {
 
   function handleInputEmail(event) {
     setInputEmail(event.target.value);
+    console.log(`email: ${inputEmail}`);
   }
   function handleInputName(event) {
     setInputName(event.target.value);
+    console.log(`name: ${inputName}`);
   }
   function handleInputNickname(event) {
     setInputNickname(event.target.value);
+    console.log(`nickname: ${inputNickname}`);
   }
   function handleInputPw(event) {
     setInputPw(event.target.value);
+    console.log(`pw: ${inputPw}`);
   }
   function handleSighUpPage() {
     setSignUpPage(false);
+  }
+  function signUpSubmit(event) {
+    event.preventDefault();
+
+    const data ={};
+    data.email = inputEmail;
+    data.name = inputName;
+    data.nickname = inputNickname;
+    data.password = inputPw;
+
+    console.log(data);
+    console.log(typeof data);
+
+    const options = {
+      method: "POST",
+      headers: {
+          "Content-Type" : 'application/json',
+      },
+      body: JSON.stringify(data)
+    }
+
+    fetch("/register", options)
   }
 
   return (
@@ -35,7 +60,9 @@ function Login({ setSignUpPage }) {
         </div>
 
         <div className={styles.under_logo_text_outer}>
-            <h3 className={styles.under_logo_text}>친구들의 사진과 동영상을 보려면 가입하세요.</h3>
+          <h3 className={styles.under_logo_text}>
+            친구들의 사진과 동영상을 보려면 가입하세요.
+          </h3>
         </div>
         {/* Facebook 로그인 */}
         <div className={styles.facebook_login_par}>
@@ -59,14 +86,9 @@ function Login({ setSignUpPage }) {
         </div>
 
         <div className={styles.form_div}>
-
           <form
             className={styles.sign_up_form}
-            onSubmit={(event) => {
-              event.preventDefault();
-              console.log("submit");
-              <Link to="/home" />;
-            }}
+            onSubmit={signUpSubmit}
           >
             <div className={styles.sign_up_form_inner}>
               <div>
@@ -107,18 +129,18 @@ function Login({ setSignUpPage }) {
               </div>
               <div>
                 <p className={styles.explain_text}>
-                    저희 서비스를 이용하는 사람이 회원님의 연락처 정보를 Instagram에 업로드했을 수도 있습니다.
+                  저희 서비스를 이용하는 사람이 회원님의 연락처 정보를
+                  Instagram에 업로드했을 수도 있습니다.
                 </p>
               </div>
               <div className={styles.div_sign_up}>
-                <Link to="/home">
-                  <button className={styles.div_sign_up_btn}>가입</button>
-                </Link>
+                  <button 
+                    type="submit"
+                    className={styles.div_sign_up_btn}>가입</button>
               </div>
             </div>
           </form>
         </div>
-
       </div>
 
       {/* 가입하기 */}
