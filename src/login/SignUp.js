@@ -3,6 +3,7 @@ import styles from "./SignUp.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
 import axios from "axios";
+import {postSignUp} from "../api/SignUp";
 
 function Login({ setSignUpPage }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -32,13 +33,27 @@ function Login({ setSignUpPage }) {
   function signUpSubmit(event) {
     event.preventDefault();
 
+    // if(inputEmail && inputName && inputNickname && inputPw === false){
+    //   alert("정보 입력해");
+    //   return;
+    // }
+    console.log(inputEmail && inputName && inputNickname && inputPw);
+
     const data ={};
     data.email = inputEmail;
     data.name = inputName;
     data.nickname = inputNickname;
     data.password = inputPw;
 
-    axios.post('/register', data).then(response => console.log(response));
+    
+
+    console.log()
+    // axios.post('/register', data).then(response => console.log(response));
+    postSignUp('/register', data);
+    inputEmail = "";
+    inputName = "";
+    inputNickname = "";
+    inputPw = "";
   }
 
   return (
