@@ -3,7 +3,7 @@ import styles from "./SignUp.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
 import axios from "axios";
-import {postSignUp} from "../api/SignUp";
+import {postSignUp} from "../api/signUp";
 
 function Login({ setSignUpPage }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -50,10 +50,10 @@ function Login({ setSignUpPage }) {
     console.log()
     // axios.post('/register', data).then(response => console.log(response));
     postSignUp('/register', data);
-    inputEmail = "";
-    inputName = "";
-    inputNickname = "";
-    inputPw = "";
+    setInputEmail("");
+    setInputName("");
+    setInputNickname("");
+    setInputPw("");
   }
 
   return (

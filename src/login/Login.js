@@ -1,24 +1,34 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import { GrFacebook } from "react-icons/gr";
-import instaLogo from "../img/instagram_icon.png"
+import instaLogo from "../img/instagram_icon.png";
 import { Link } from "react-router-dom";
+import LoginInput from "../components/atom/LoginInput";
+import { loginAPI } from "../api/login";
 
-function Login({setSignUpPage}) {
-    const [inputId, setInputId] = useState("");
-    const [inputPw, setInputPw] = useState("");
+function Login({ setSignUpPage }) {
+  const [inputId, setInputId] = useState("");
+  const [inputPw, setInputPw] = useState("");
 
-    function handleInputId(event){
-        setInputId(event.target.value);
-        console.log("ID: ",event.target.value);
-    }
-    function handleInputPw(event){
-        setInputPw(event.target.value);
-        console.log("PW: ", event.target.value);
-    }
-    function handleSignUpPage(){
-      setSignUpPage(true);
-    }
+  function handleInputId(event) {
+    setInputId(event.target.value);
+    console.log("ID: ", event.target.value);
+  }
+  function handleInputPw(event) {
+    setInputPw(event.target.value);
+    console.log("PW: ", event.target.value);
+  }
+  function handleSignUpPage() {
+    setSignUpPage(true);
+  }
+  function loginSubmit(event) {
+    event.preventDefault();
+    const data = {};
+    data.email = inputId;
+    data.password = inputPw;
+
+    loginAPI("/login", data);
+  }
 
   return (
     <div className={styles.login_body}>
@@ -31,35 +41,35 @@ function Login({setSignUpPage}) {
         <div className={styles.form_div}>
           <form
             className={styles.login_form}
-            onSubmit={(event) => {
-              event.preventDefault();
-              console.log("submit");
-              <Link to="/home" />;
-            }}
+            onSubmit={loginSubmit}
+            // onSubmit={(event) => {
+            //   event.preventDefault();
+            //   console.log("submit");
+            //   <Link to="/home" />;
+            // }}
           >
             <div className={styles.login}>
-              <div>
-                <input
-                  className={styles.login_input}
-                  type="text"
+              <div className={styles.input_outer}>
+                <LoginInput
                   onChange={handleInputId}
-                  placeholder="전화번호, 사용자 이름 또는 이메일"
+                  placeholder={"전화번호, 사용자 이름 또는 이메일"}
                   value={inputId}
                 />
               </div>
-              <div>
-                <input
-                  className={styles.login_input}
-                  type="text"
+              <div className={styles.input_outer}>
+                <LoginInput
                   onChange={handleInputPw}
-                  placeholder="비밀번호"
+                  placeholder={"비밀번호"}
                   value={inputPw}
                 />
               </div>
               <div className={styles.div_login}>
-                <Link to="/home">
+                <button type="submit" className={styles.div_login_btn}>
+                  로그인
+                </button>
+                {/* <Link to="/home">
                   <button className={styles.div_login_btn}>로그인</button>
-                </Link>
+                </Link> */}
               </div>
               <div className={styles.or}>
                 <span className={styles.line}></span>
@@ -93,9 +103,10 @@ function Login({setSignUpPage}) {
       <div className={styles.sign_up}>
         <p className={styles.sign_up_text}>
           계정이 없으신가요?
-          <button 
+          <button
             className={styles.sign_up_text_btn}
-            onClick={handleSignUpPage}>
+            onClick={handleSignUpPage}
+          >
             가입하기
           </button>
         </p>
