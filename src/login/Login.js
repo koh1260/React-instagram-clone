@@ -2,9 +2,8 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
-import SignInUpInput from "../components/atoms/SignInUpInput";
-import SignInUpButton from "../components/atoms/SignInUpButton";
 import LoginForm from "../components/molecules/LoginForm";
+import OrLine from "../components/atoms/OrLine";
 import { loginAPI } from "../api/login";
 
 function Login({ setSignUpPage }) {
@@ -39,71 +38,37 @@ function Login({ setSignUpPage }) {
         </div>
 
         {/* 로그인 ~ 비밀번호 찾기 */}
-        <div className={styles.form_div}>
-          <form
-            className={styles.login_form}
+        <div className={styles.login_box_contents}>
+          <LoginForm
             onSubmit={loginSubmit}
-            // onSubmit={(event) => {
-            //   event.preventDefault();
-            //   console.log("submit");
-            //   <Link to="/home" />;
-            // }}
-          >
-            <LoginForm 
-              onSubmit={loginSubmit}
-              placeholder01={"전화번호, 사용자 이름 또는 이메일"}
-              placeholder02={"비밀번호"}
-              onChange01={handleInputId}
-              onChange02={handleInputPw}
-              value01={inputId}
-              value02={inputPw}
-              btnText={"로그인"}
-              />
-            
-            {/* <div className={styles.login}>
-              <div className={styles.input_outer}>
-                <SignInUpInput
-                  onChange={handleInputId}
-                  placeholder={"전화번호, 사용자 이름 또는 이메일"}
-                  value={inputId}
-                />
-              </div>
-              <div className={styles.input_outer}>
-                <SignInUpInput
-                  onChange={handleInputPw}
-                  placeholder={"비밀번호"}
-                  value={inputPw}
-                />
-              </div>
-              <div>
-                <SignInUpButton btnText={"로그인"} />
-              </div>
-            </div> */}
+            placeholder01={"전화번호, 사용자 이름 또는 이메일"}
+            placeholder02={"비밀번호"}
+            onChange01={handleInputId}
+            onChange02={handleInputPw}
+            value01={inputId}
+            value02={inputPw}
+            btnText={"로그인"}
+          />
 
-            <div className={styles.or}>
-              <span className={styles.line}></span>
-              <span className={styles.or_text}>또는</span>
-              <span className={styles.line}></span>
-            </div>
+          <OrLine />
 
-            <div className={styles.facebook_login_par}>
-              <div className={styles.facebook_login}>
-                <button className={styles.facebook_login_btn}>
-                  <span className={styles.facebook_login_logo}>
-                    <GrFacebook className={styles.facebook_logo} size="15" />
-                  </span>
-                  <span className={styles.facebook_login_text}>
-                    Facebook으로 로그인
-                  </span>
-                </button>
-              </div>
+          <div className={styles.facebook_login_par}>
+            <div className={styles.facebook_login}>
+              <button className={styles.facebook_login_btn}>
+                <span className={styles.facebook_login_logo}>
+                  <GrFacebook className={styles.facebook_logo} size="15" />
+                </span>
+                <span className={styles.facebook_login_text}>
+                  Facebook으로 로그인
+                </span>
+              </button>
             </div>
-          </form>
-        </div>
-        <div className={styles.lose_password}>
-          <a className={styles.lose_password_text} href="#">
-            비밀번호를 잊으셨나요?
-          </a>
+          </div>
+          <div className={styles.lose_password}>
+            <a className={styles.lose_password_text} href="#">
+              비밀번호를 잊으셨나요?
+            </a>
+          </div>
         </div>
       </div>
 

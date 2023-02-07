@@ -1,0 +1,19 @@
+.or{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+.or_text{
+    font-size: 14px;
+    color: #A2A2A2;
+    font-weight: 500;
+    margin: 0 6px;
+}
+.line{
+    height: 1px;
+    width: 110px;
+    background-color: #A2A2A2;
+    border: 0.45em solid white;
+}
