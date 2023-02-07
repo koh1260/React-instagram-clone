@@ -2,8 +2,9 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
-import SignInUpInput from "../components/atom/SignInUpInput";
-import SignInUpButton from "../components/atom/SignInUpButton";
+import SignInUpInput from "../components/atoms/SignInUpInput";
+import SignInUpButton from "../components/atoms/SignInUpButton";
+import LoginForm from "../components/molecules/LoginForm";
 import { loginAPI } from "../api/login";
 
 function Login({ setSignUpPage }) {
@@ -48,7 +49,18 @@ function Login({ setSignUpPage }) {
             //   <Link to="/home" />;
             // }}
           >
-            <div className={styles.login}>
+            <LoginForm 
+              onSubmit={loginSubmit}
+              placeholder01={"전화번호, 사용자 이름 또는 이메일"}
+              placeholder02={"비밀번호"}
+              onChange01={handleInputId}
+              onChange02={handleInputPw}
+              value01={inputId}
+              value02={inputPw}
+              btnText={"로그인"}
+              />
+            
+            {/* <div className={styles.login}>
               <div className={styles.input_outer}>
                 <SignInUpInput
                   onChange={handleInputId}
@@ -64,14 +76,14 @@ function Login({ setSignUpPage }) {
                 />
               </div>
               <div>
-                <SignInUpButton btnText={"로그인"}/>
+                <SignInUpButton btnText={"로그인"} />
               </div>
+            </div> */}
 
-              <div className={styles.or}>
-                <span className={styles.line}></span>
-                <span className={styles.or_text}>또는</span>
-                <span className={styles.line}></span>
-              </div>
+            <div className={styles.or}>
+              <span className={styles.line}></span>
+              <span className={styles.or_text}>또는</span>
+              <span className={styles.line}></span>
             </div>
 
             <div className={styles.facebook_login_par}>

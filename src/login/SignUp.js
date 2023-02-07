@@ -4,8 +4,8 @@ import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
 import axios from "axios";
 import { postSignUp } from "../api/signUp";
-import SignInUpInput from "../components/atom/SignInUpInput";
-import SignInUpButton from '../components/atom/SignInUpButton';
+import SignInUpInput from "../components/atoms/SignInUpInput";
+import SignInUpButton from '../components/atoms/SignInUpButton';
 
 function Login({ setSignUpPage }) {
   const [inputEmail, setInputEmail] = useState("");

@@ -1,0 +1,11 @@
+.login_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input_outer{
+    margin-bottom: 0.3rem;
+}
+.button_outer{
+    margin-top: 0.5rem;
+}
