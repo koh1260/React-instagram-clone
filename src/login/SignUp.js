@@ -4,7 +4,8 @@ import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
 import axios from "axios";
 import { postSignUp } from "../api/signUp";
-import LoginInput from "../components/atom/LoginInput";
+import SignInUpInput from "../components/atom/SignInUpInput";
+import SignInUpButton from '../components/atom/SignInUpButton';
 
 function Login({ setSignUpPage }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -93,28 +94,28 @@ function Login({ setSignUpPage }) {
           <form className={styles.sign_up_form} onSubmit={signUpSubmit}>
             <div className={styles.sign_up_form_inner}>
               <div className={styles.input_outer}>
-                <LoginInput
+                <SignInUpInput
                   placeholder={"휴대폰 번호 또는 이메일 주소"}
                   onChange={handleInputEmail}
                   value={inputEmail}
                 />
               </div>
               <div className={styles.input_outer}>
-                <LoginInput
+                <SignInUpInput
                   placeholder={"성명"}
                   onChange={handleInputName}
                   value={inputName}
                 />
               </div>
               <div className={styles.input_outer}>
-                <LoginInput
+                <SignInUpInput
                   placeholder={"사용자 이름"}
                   onChange={handleInputNickname}
                   value={inputNickname}
                 />
               </div>
               <div className={styles.input_outer}>
-                <LoginInput
+                <SignInUpInput
                   placeholder={"비밀번호"}
                   onChange={handleInputPw}
                   value={inputPw}
@@ -127,11 +128,7 @@ function Login({ setSignUpPage }) {
                   Instagram에 업로드했을 수도 있습니다.
                 </p>
               </div>
-              <div className={styles.div_sign_up}>
-                <button type="submit" className={styles.div_sign_up_btn}>
-                  가입
-                </button>
-              </div>
+              <SignInUpButton btnText={"가입"}/>
             </div>
           </form>
         </div>

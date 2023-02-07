@@ -2,8 +2,8 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
-import { Link } from "react-router-dom";
-import LoginInput from "../components/atom/LoginInput";
+import SignInUpInput from "../components/atom/SignInUpInput";
+import SignInUpButton from "../components/atom/SignInUpButton";
 import { loginAPI } from "../api/login";
 
 function Login({ setSignUpPage }) {
@@ -50,27 +50,23 @@ function Login({ setSignUpPage }) {
           >
             <div className={styles.login}>
               <div className={styles.input_outer}>
-                <LoginInput
+                <SignInUpInput
                   onChange={handleInputId}
                   placeholder={"전화번호, 사용자 이름 또는 이메일"}
                   value={inputId}
                 />
               </div>
               <div className={styles.input_outer}>
-                <LoginInput
+                <SignInUpInput
                   onChange={handleInputPw}
                   placeholder={"비밀번호"}
                   value={inputPw}
                 />
               </div>
-              <div className={styles.div_login}>
-                <button type="submit" className={styles.div_login_btn}>
-                  로그인
-                </button>
-                {/* <Link to="/home">
-                  <button className={styles.div_login_btn}>로그인</button>
-                </Link> */}
+              <div>
+                <SignInUpButton btnText={"로그인"}/>
               </div>
+
               <div className={styles.or}>
                 <span className={styles.line}></span>
                 <span className={styles.or_text}>또는</span>

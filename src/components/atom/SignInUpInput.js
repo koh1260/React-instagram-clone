@@ -1,6 +1,6 @@
-import styles from './LoginInput.module.css';
+import styles from './SignInUpInput.module.css';
 
-function LoginInput({placeholder, onChange, value}){
+function SignInUpInput({placeholder, onChange, value}){
     return (
         <div>
             <input className={styles.login_input}
@@ -12,4 +12,4 @@ function LoginInput({placeholder, onChange, value}){
         </div>
     )
 }
-export default LoginInput;
+export default SignInUpInput;
