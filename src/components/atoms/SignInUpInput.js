@@ -1,10 +1,10 @@
 import styles from './SignInUpInput.module.css';
 
-function SignInUpInput({placeholder, onChange, value}){
+function SignInUpInput({placeholder, onChange, value, inputType}){
     return (
         <div>
             <input className={styles.login_input}
-            type="text"
+            type={inputType}
             placeholder={placeholder}
             onChange={onChange}
             value={value}

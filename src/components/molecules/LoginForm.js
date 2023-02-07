@@ -4,6 +4,8 @@ import SignInUpButton from "../atoms/SignInUpButton";
 //placeholder, onChange, value
 function LoginForm({
   onSubmit,
+  inputType01,
+  inputType02,
   placeholder01,
   onChange01,
   value01,
@@ -14,11 +16,10 @@ function LoginForm({
 }) {
   return (
     <div>
-      <form 
-        className={styles.login_form}
-        onSubmit={onSubmit}>
+      <form className={styles.login_form} onSubmit={onSubmit}>
         <div className={styles.input_outer}>
           <SignInUpInput
+            inputType={inputType01}
             placeholder={placeholder01}
             onChange={onChange01}
             value={value01}
@@ -26,6 +27,7 @@ function LoginForm({
         </div>
         <div className={styles.input_outer}>
           <SignInUpInput
+            inputType={inputType02}
             placeholder={placeholder02}
             onChange={onChange02}
             value={value02}

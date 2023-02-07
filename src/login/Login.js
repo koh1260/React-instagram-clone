@@ -41,6 +41,8 @@ function Login({ setSignUpPage }) {
         <div className={styles.login_box_contents}>
           <LoginForm
             onSubmit={loginSubmit}
+            inputType01={"text"}
+            inputType02={"password"}
             placeholder01={"전화번호, 사용자 이름 또는 이메일"}
             placeholder02={"비밀번호"}
             onChange01={handleInputId}
