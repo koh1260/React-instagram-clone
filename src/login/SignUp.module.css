@@ -1,8 +1,5 @@
-.sign_up_input{
-    width: 268px;
-    height: 35px;
-    margin: 0 40px 6px;
-    border: 1px solid #DBDBDB;
+.input_outer{
+    margin-bottom: 0.3rem;
 }
 .sign_up_body{
     margin-left: 30px;

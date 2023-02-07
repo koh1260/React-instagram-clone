@@ -3,7 +3,8 @@ import styles from "./SignUp.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
 import axios from "axios";
-import {postSignUp} from "../api/signUp";
+import { postSignUp } from "../api/signUp";
+import LoginInput from "../components/atom/LoginInput";
 
 function Login({ setSignUpPage }) {
   const [inputEmail, setInputEmail] = useState("");
@@ -39,17 +40,15 @@ function Login({ setSignUpPage }) {
     // }
     console.log(inputEmail && inputName && inputNickname && inputPw);
 
-    const data ={};
+    const data = {};
     data.email = inputEmail;
     data.name = inputName;
     data.nickname = inputNickname;
     data.password = inputPw;
 
-    
-
-    console.log()
+    console.log();
     // axios.post('/register', data).then(response => console.log(response));
-    postSignUp('/register', data);
+    postSignUp("/register", data);
     setInputEmail("");
     setInputName("");
     setInputNickname("");
@@ -91,47 +90,37 @@ function Login({ setSignUpPage }) {
         </div>
 
         <div className={styles.form_div}>
-          <form
-            className={styles.sign_up_form}
-            onSubmit={signUpSubmit}
-          >
+          <form className={styles.sign_up_form} onSubmit={signUpSubmit}>
             <div className={styles.sign_up_form_inner}>
-              <div>
-                <input
-                  className={styles.sign_up_input}
-                  type="text"
+              <div className={styles.input_outer}>
+                <LoginInput
+                  placeholder={"휴대폰 번호 또는 이메일 주소"}
                   onChange={handleInputEmail}
-                  placeholder="휴대폰 번호 또는 이메일 주소"
                   value={inputEmail}
                 />
               </div>
-              <div>
-                <input
-                  className={styles.sign_up_input}
-                  type="text"
+              <div className={styles.input_outer}>
+                <LoginInput
+                  placeholder={"성명"}
                   onChange={handleInputName}
-                  placeholder="성명"
                   value={inputName}
                 />
               </div>
-              <div>
-                <input
-                  className={styles.sign_up_input}
-                  type="text"
+              <div className={styles.input_outer}>
+                <LoginInput
+                  placeholder={"사용자 이름"}
                   onChange={handleInputNickname}
-                  placeholder="사용자 이름"
                   value={inputNickname}
                 />
               </div>
-              <div>
-                <input
-                  className={styles.sign_up_input}
-                  type="text"
+              <div className={styles.input_outer}>
+                <LoginInput
+                  placeholder={"비밀번호"}
                   onChange={handleInputPw}
-                  placeholder="비밀번호"
                   value={inputPw}
                 />
               </div>
+
               <div>
                 <p className={styles.explain_text}>
                   저희 서비스를 이용하는 사람이 회원님의 연락처 정보를
@@ -139,9 +128,9 @@ function Login({ setSignUpPage }) {
                 </p>
               </div>
               <div className={styles.div_sign_up}>
-                  <button 
-                    type="submit"
-                    className={styles.div_sign_up_btn}>가입</button>
+                <button type="submit" className={styles.div_sign_up_btn}>
+                  가입
+                </button>
               </div>
             </div>
           </form>
