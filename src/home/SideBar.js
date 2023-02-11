@@ -12,9 +12,17 @@ import {RxHamburgerMenu} from "react-icons/rx";
 import {BiMoviePlay} from "react-icons/bi";
 import {AiOutlineInstagram} from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
+import MenuBar from "./MenuBar";
 
 function SideBar() {
-
+  const [menuOpen, setMenuOpen] = useState(false);
+  function openMeunBar(){
+    if(menuOpen){
+      setMenuOpen(false);
+    }else{
+      setMenuOpen(true);
+    }
+  }
 
   return (
     <div className={styles.main}>
@@ -81,7 +89,11 @@ function SideBar() {
           </div>
         </div>
 
-        <div className={styles.menu}>
+        <div 
+          typeof="button"
+          onClick={openMeunBar}
+          className={styles.menu}>
+            {menuOpen ? <MenuBar /> : null}
           <span>
             <RxHamburgerMenu className={styles.menu_icon} />
           </span>
