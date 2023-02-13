@@ -9,14 +9,9 @@ import { VscSmiley } from "react-icons/vsc";
 import CommentModal from "./CommentModal";
 import CommentWriting from "./CommentWriting";
 
+
 function Post({ user, image, content, likes, createAt, comments }) {
   const [openCommentModal, setOpenCommentModal] = useState(false);
-
-  const postTimeCalc = (time) => {
-    if (time >= 3600) return `${Math.floor(time / 3600)}시간 전`;
-    if (time >= 60) return `${Math.floor(time / 60)}분 전`;
-    return `${time}초 전`;
-  };
 
   function openAllComment() {
     setOpenCommentModal(true);
@@ -84,7 +79,7 @@ function Post({ user, image, content, likes, createAt, comments }) {
               className={styles.comments_count}
             >{`댓글 ${comments.length}개 모두 보기`}</div>
           ) : null}
-          <div className={styles.create_at}>{postTimeCalc(createAt)}</div>
+          <div className={styles.create_at}>{createAt}</div>
         </div>
 
         {/* 댓글 작성 */}

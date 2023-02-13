@@ -5,29 +5,46 @@ import instaLogo from "../img/instagram_icon.png";
 import LoginForm from "../components/molecules/LoginForm";
 import OrLine from "../components/atoms/OrLine";
 import { loginAPI } from "../api/login";
+import {useNavigate} from "react-router-dom";
+import axios from "axios";
 
 function Login({ setSignUpPage }) {
   const [inputId, setInputId] = useState("");
   const [inputPw, setInputPw] = useState("");
+  const navigate = useNavigate();
+  const myStorage = window.sessionStorage;
 
   function handleInputId(event) {
     setInputId(event.target.value);
-    console.log("ID: ", event.target.value);
   }
   function handleInputPw(event) {
     setInputPw(event.target.value);
-    console.log("PW: ", event.target.value);
   }
   function handleSignUpPage() {
     setSignUpPage(true);
   }
   function loginSubmit(event) {
     event.preventDefault();
-    const data = {};
-    data.email = inputId;
-    data.password = inputPw;
+    const data = {
+      email: inputId,
+      password: inputPw
+    };
+    const config = {
+      method: 'post',
+      url: 'http://localhost:4000/auth/login',
+      data: data,
+      withCredentials: true
+    }
 
-    loginAPI("/login", data);
+    axios(config)
+      .then((response) => {
+        if(response.status === 200){
+          console.log(response.data);
+          myStorage.setItem("userId", response.data.userId)
+          navigate('/home');
+        }
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
