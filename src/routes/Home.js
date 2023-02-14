@@ -10,11 +10,10 @@ import { useEffect } from "react";
 import axios from "axios";
 
 function Home() {
-  const [menuOpen, setMenuOpen] = useState();
   const [posts, setPosts] = useState([]);
   const userId = window.sessionStorage.getItem("userId");
 
-  const options = {
+  const config = {
     method: 'get',
     url: 'http://localhost:4000/post/test',
     data: {"userId" : Number(userId)},
@@ -22,7 +21,7 @@ function Home() {
   }
 
   useEffect(() => {
-    axios(options)
+    axios(config)
       .then((response) => {
         const data = response.data;
         setPosts((currentPosts) => [...data])
@@ -66,6 +65,8 @@ function Home() {
                     createAt={post.createAt}
                     content={post.content}
                     comments={post.Comments.length}
+                    profileImage={post.User.profileImage}
+                    nickname={post.User.nickname}
                   />
                 ))}
               </div>

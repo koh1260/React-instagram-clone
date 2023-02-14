@@ -13,12 +13,18 @@ import {BiMoviePlay} from "react-icons/bi";
 import {AiOutlineInstagram} from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
 import MenuBar from "./MenuBar";
+import Modal from '../components/Modal';
+import PostingModal from '../components/PostingModal';
 
 function SideBar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openPosting, setOpenPosting] = useState(false);
+
+
   function openMeunBar(){
     if(menuOpen){
       setMenuOpen(false);
+
     }else{
       setMenuOpen(true);
     }
@@ -75,7 +81,9 @@ function SideBar() {
             </span>
             <span className={styles.menu_text}>알림</span>
           </div>
-          <div className={styles.menu}>
+          <div 
+          onClick={()=>setOpenPosting(true)}
+          className={styles.menu}>
             <span>
               <FiPlusSquare className={styles.menu_icon} />
             </span>
@@ -100,6 +108,7 @@ function SideBar() {
           <span className={styles.menu_text}>더 보기</span>
         </div>
       </div>
+      {openPosting ? <Modal setOpenPosting={setOpenPosting} ><PostingModal /></Modal> : null}
     </div>
   );
 }

@@ -1,0 +1,46 @@
+
+.posting_modal{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    z-index: 1002;
+    width: 550px;
+    height: 550px;
+    border-radius: 12px;
+}
+.new_post_text_outer{
+    text-align: center;
+    padding: 0.7rem 0;
+    border-bottom: 1px rgb(219,219,219) solid;
+}
+.new_post_text{
+    font-weight: 500;
+}
+.icon_outer{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.file_input_btn{
+    width: 120px;
+    height: 32px;
+    border-radius: 7px;
+    border: 0;
+    background-color: #0095f6;
+    color: white;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-weight: 550;
+}
+.file_select_btn{
+    display: none;
+}
+.drag_drop_text{
+    font-size: 1.25rem;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}

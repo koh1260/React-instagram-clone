@@ -10,7 +10,7 @@ import CommentModal from "./CommentModal";
 import CommentWriting from "./CommentWriting";
 
 
-function Post({ user, image, content, likes, createAt, comments }) {
+function Post({ user, image, content, likes, createAt, comments, profileImage, nickname }) {
   const [openCommentModal, setOpenCommentModal] = useState(false);
 
   function openAllComment() {
@@ -22,9 +22,9 @@ function Post({ user, image, content, likes, createAt, comments }) {
       <div className={styles.post}>
         <div className={styles.profile}>
           <div className={styles.profile_image_outer}>
-            <img className={styles.profile_image} src={user.profileImage} />
+            <img className={styles.profile_image} src={profileImage} />
           </div>
-          <div className={styles.user_id}>{user.id}</div>
+          <div className={styles.user_id}>{nickname}</div>
           <div>
             <BiDotsHorizontalRounded />
           </div>
@@ -71,7 +71,7 @@ function Post({ user, image, content, likes, createAt, comments }) {
 
           <div className={styles.likes_count}>{`좋아요 ${likes}개`}</div>
           <div className={styles.post_user_and_content}>
-            <span className={styles.post_user}>{user.id}</span>
+            <span className={styles.post_user}>{nickname}</span>
             <span className={styles.content}>{content}</span>
           </div>
           {comments.length ? (
