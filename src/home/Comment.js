@@ -20,7 +20,7 @@ export default function Comment({ user, content, createAt, likes }) {
               marginBottom: "0",
             }}
           >
-            {user.id}
+            {user.nickname}
           </h3>
           <div
              className={styles.comment_content}

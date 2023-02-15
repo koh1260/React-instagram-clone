@@ -7,6 +7,7 @@ import { BsBookmark } from "react-icons/bs";
 import CommentWriting from "./CommentWriting";
 import Comment from "./Comment";
 import { type } from "@testing-library/user-event/dist/type";
+import axios from "axios";
 
 function CommentModal({
   user,
@@ -21,7 +22,17 @@ function CommentModal({
     setOpenCommentModal(false);
   }
 
-  console.log(comments[0].user);
+  async function getUser(userId){
+    const config = {
+      url: `http://localhost:4000/auth/user/${userId}`,
+      method: "get",
+    }
+
+    const response = await axios(config);
+    const user = response.data;
+    
+    return user;
+  }
 
   return (
     <div className={styles.main}>
@@ -41,7 +52,7 @@ function CommentModal({
               <div className={styles.profile_image_outer}>
                 <img className={styles.profile_image} src={user.profileImage} />
               </div>
-              <div className={styles.profile_userid}>{user.id}</div>
+              <div className={styles.profile_userid}>{user.nicknme}</div>
               <div className={styles.profile_more_info_btn_outer}>
                 <BiDotsHorizontalRounded />
               </div>
@@ -72,10 +83,10 @@ function CommentModal({
             <div className={styles.comment}>
                 {comments.map(comment => (
                     <Comment 
-                        key={comment.user.id}
-                        user={comment.user}
+                        key={comment.commentId}
+                        user={getUser(comment.userId)}
                         content={comment.content}
-                        likes={comment.likes}
+                        likes={20}
                         createAt={comment.createAt}
                         /> 
                 ))}

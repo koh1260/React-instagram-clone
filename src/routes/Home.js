@@ -2,6 +2,8 @@ import SideBar from "../home/SideBar";
 import Story from "../home/Story";
 import Post from "../home/Post";
 import FrdRecommand from "../home/FrdRecommand";
+import Modal from "../components/Modal";
+import PostingModal from "../components/PostingModal";
 import styles from "./Home.module.css";
 import postDummy from "../db/post.json";
 import storyDummy from "../db/story.json";
@@ -11,20 +13,22 @@ import axios from "axios";
 
 function Home() {
   const [posts, setPosts] = useState([]);
+  const [openPosting, setOpenPosting] = useState(false);
   const userId = window.sessionStorage.getItem("userId");
 
-  const config = {
-    method: 'get',
-    url: 'http://localhost:4000/post/test',
-    data: {"userId" : Number(userId)},
-    withCredentials: true
-  }
-
   useEffect(() => {
+    const config = {
+      method: "get",
+      url: "http://localhost:4000/post/test",
+      data: { userId: Number(userId) },
+      withCredentials: true,
+    };
+
     axios(config)
       .then((response) => {
         const data = response.data;
-        setPosts((currentPosts) => [...data])
+        setPosts((currentPosts) => [...data]);
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -38,8 +42,18 @@ function Home() {
       ) : (
         <div>
           <div className={styles.side_bar}>
-            <SideBar />
+            <SideBar setOpenPosting={setOpenPosting}/>
           </div>
+          {/* 게시글 작성 모달 */}
+          {openPosting ? (
+            <Modal 
+            setOpenPosting={setOpenPosting}
+            >
+              <div>
+                <PostingModal />
+              </div>
+            </Modal>
+          ) : null}
           <div className={styles.post_and_recommand}>
             <div className={styles.story_and_post}>
               <div className={styles.storys}>
@@ -59,14 +73,12 @@ function Home() {
                 {posts.map((post) => (
                   <Post
                     key={post.postId}
-                    user={post.userId}
+                    user={post.User}
                     image={post.Images[0].imageUrl}
                     likes={20}
                     createAt={post.createAt}
                     content={post.content}
-                    comments={post.Comments.length}
-                    profileImage={post.User.profileImage}
-                    nickname={post.User.nickname}
+                    comments={post.Comments}
                   />
                 ))}
               </div>
