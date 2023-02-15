@@ -3,8 +3,8 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    z-index: 1002;
-    width: 550px;
+    z-index: 999;
+    max-width: 1040px;
     height: 550px;
     border-radius: 12px;
 }
@@ -37,10 +37,17 @@
 .drag_drop_text{
     font-size: 1.25rem;
 }
+.container_outer{
+    display: flex;
+    flex-direction: row;
+}
 .container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
+}
+.contents_container{
+    width: 325px;
 }

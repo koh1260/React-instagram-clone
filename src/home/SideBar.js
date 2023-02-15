@@ -1,31 +1,28 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styles from "./SideBar.module.css";
 import instaLogo from "../img/instagram_icon.png";
-import {GrSearch}from "react-icons/gr";
-import {AiOutlineCompass} from "react-icons/ai";
-import {IoPaperPlaneOutline} from "react-icons/io5";
-import {AiOutlineHeart} from "react-icons/ai";
-import {FiPlusSquare} from "react-icons/fi";
-import {CgProfile} from "react-icons/cg";
-import {GrHomeRounded} from "react-icons/gr";
-import {RxHamburgerMenu} from "react-icons/rx";
-import {BiMoviePlay} from "react-icons/bi";
-import {AiOutlineInstagram} from "react-icons/ai";
+import { GrSearch } from "react-icons/gr";
+import { AiOutlineCompass } from "react-icons/ai";
+import { IoPaperPlaneOutline } from "react-icons/io5";
+import { AiOutlineHeart } from "react-icons/ai";
+import { FiPlusSquare } from "react-icons/fi";
+import { CgProfile } from "react-icons/cg";
+import { GrHomeRounded } from "react-icons/gr";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { BiMoviePlay } from "react-icons/bi";
+import { AiOutlineInstagram } from "react-icons/ai";
 import { useMediaQuery } from "react-responsive";
 import MenuBar from "./MenuBar";
-import Modal from '../components/Modal';
-import PostingModal from '../components/PostingModal';
+import Modal from "../components/Modal";
+import PostingModal from "../components/PostingModal";
 
-function SideBar() {
+function SideBar({setOpenPosting}) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openPosting, setOpenPosting] = useState(false);
 
-
-  function openMeunBar(){
-    if(menuOpen){
+  function openMeunBar() {
+    if (menuOpen) {
       setMenuOpen(false);
-
-    }else{
+    } else {
       setMenuOpen(true);
     }
   }
@@ -43,7 +40,7 @@ function SideBar() {
         </div>
 
         <div className={styles.menus}>
-          <div onClick={(i)=>console.log(i)} className={styles.menu}>
+          <div onClick={(i) => console.log(i)} className={styles.menu}>
             <span>
               <GrHomeRounded className={styles.menu_icon} />
             </span>
@@ -81,9 +78,7 @@ function SideBar() {
             </span>
             <span className={styles.menu_text}>알림</span>
           </div>
-          <div 
-          onClick={()=>setOpenPosting(true)}
-          className={styles.menu}>
+          <div onClick={() => setOpenPosting(true)} className={styles.menu}>
             <span>
               <FiPlusSquare className={styles.menu_icon} />
             </span>
@@ -97,18 +92,15 @@ function SideBar() {
           </div>
         </div>
 
-        <div 
-          typeof="button"
-          onClick={openMeunBar}
-          className={styles.menu}>
-            {menuOpen ? <MenuBar /> : null}
+        <div typeof="button" onClick={openMeunBar} className={styles.menu}>
+          {menuOpen ? <MenuBar /> : null}
           <span>
             <RxHamburgerMenu className={styles.menu_icon} />
           </span>
           <span className={styles.menu_text}>더 보기</span>
         </div>
       </div>
-      {openPosting ? <Modal setOpenPosting={setOpenPosting} ><PostingModal /></Modal> : null}
+
     </div>
   );
 }

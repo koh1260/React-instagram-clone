@@ -4,7 +4,6 @@ import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
 import LoginForm from "../components/molecules/LoginForm";
 import OrLine from "../components/atoms/OrLine";
-import { loginAPI } from "../api/login";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 

@@ -48,7 +48,7 @@ function SignUpForm() {
 
     try {
       const response = await axios.post(
-        "http://localhost:4000/auth/sign_up",
+        "http://localhost:4000/auth/sign-up",
         data
       );
       console.log(response);
