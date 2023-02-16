@@ -52,7 +52,7 @@ function CommentModal({
               <div className={styles.profile_image_outer}>
                 <img className={styles.profile_image} src={user.profileImage} />
               </div>
-              <div className={styles.profile_userid}>{user.nicknme}</div>
+              <div className={styles.profile_userid}>{user.nickname}</div>
               <div className={styles.profile_more_info_btn_outer}>
                 <BiDotsHorizontalRounded />
               </div>

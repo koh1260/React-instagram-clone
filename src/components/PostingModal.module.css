@@ -40,6 +40,7 @@
 .container_outer{
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
 }
 .container{
     display: flex;
@@ -50,4 +51,57 @@
 }
 .contents_container{
     width: 325px;
+    border-left: 1px #C7C7C7 solid;
+}
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem;
+}
+.profile__image{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1.2rem;
+    border: 1px black solid;
+    margin-right: 0.7rem;
+}
+.textarea_outer{
+    padding: 0.5rem;
+}
+.textarea{
+    border: 0;
+    padding: 0;
+    width: 100%;
+    height: 10rem;
+}
+.counter{
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px #C7C7C7 solid;
+    color: #C7C7C7;
+}
+.smile_icon{
+    fill: #C7C7C7;
+}
+.location_input{
+    border: 0;
+    font-size: 1rem;
+}
+.util{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5rem;
+    border-bottom: 1px #C7C7C7 solid;
+}
+.icon{
+    fill: black;
+    transform: rotate( 180deg );
+}
+.location_icon{
+    transform: rotate( 360deg );
 }

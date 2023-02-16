@@ -1,6 +1,13 @@
 ul{
     padding: 0;
 }
+input{
+    outline: none;
+}
+textarea{
+    outline: none;
+    resize: none;
+}
 .main{
     display: flex;
     flex-direction: row;

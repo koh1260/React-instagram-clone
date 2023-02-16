@@ -2,9 +2,6 @@
     font-size: 0.9rem;
     font-weight: 600;
 }
-.content_text{
-
-}
 .main{
     position: fixed;
     top: 0;
@@ -19,6 +16,8 @@
 }
 .comment_modal{
     width: 100%;
+    border-radius: 12px;
+
 }
 .content{
     display: flex;
@@ -26,6 +25,7 @@
     max-width: calc(100vw - 128px);
     max-height: calc(100vh - 60px);
     margin: auto;
+    
 }
 .image_container{
     display: flex;
@@ -96,9 +96,7 @@
 .post_content_profile_image_outer{
     margin-right: 1.2rem;
 }
-.post_content_id_and_content{
-    
-}
+
 .post_content_user_id{
     font-size: 0.9rem;
     font-weight: 600;
@@ -117,9 +115,7 @@
     height: 1.8rem;
     border-radius: 70px; 
 }
-.comment{
 
-}
 .utils{
     display: flex;
     flex-direction: row;
