@@ -49,9 +49,7 @@ function Home() {
             <Modal 
             setOpenPosting={setOpenPosting}
             >
-              <div>
-                <PostingModal />
-              </div>
+                <PostingModal setOpenPosting={setOpenPosting}/>
             </Modal>
           ) : null}
           <div className={styles.post_and_recommand}>
