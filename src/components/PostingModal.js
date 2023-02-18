@@ -21,6 +21,8 @@ function PostingModal({setOpenPosting}) {
     fileInput.current.click();
   }
 
+
+  // 게시글 작성
   async function posting() {
     const data = {
       userId: user.userId,
@@ -31,12 +33,11 @@ function PostingModal({setOpenPosting}) {
       formData.append(key, data[key]);
     }
     const response = await axios.post('http://localhost:4000/post/posting', formData);
-    console.log(response.status);
     if(response.status === 200) setOpenPosting(false);
   }
 
 //   리렌더링되니까 file, formData는 계속 초기화된다.
-  function imageUploadTest(e) {
+  function imageUpload(e) {
     e.preventDefault();
     const file = e.target.files[0];
     fileData.current = file;
@@ -52,11 +53,6 @@ function PostingModal({setOpenPosting}) {
       );
     };
     if (file) reader.readAsDataURL(file);
-
-    // console.log(file);
-    // axios
-    //   .post("http://localhost:4000/post/image", formData)
-    //   .then((response) => console.log(response));
   }
 
   useEffect(() => {
@@ -67,7 +63,7 @@ function PostingModal({setOpenPosting}) {
       console.log(user);
     };
     getUser();
-  }, [text]);
+  }, []);
 
   return (
     <div className={styles.main}>
@@ -113,7 +109,7 @@ function PostingModal({setOpenPosting}) {
                       ref={fileInput}
                       type="file"
                       name="postImage"
-                      onChange={(e) => imageUploadTest(e)}
+                      onChange={(e) => imageUpload(e)}
                       className={styles.file_select_btn}
                     />
                   </form>

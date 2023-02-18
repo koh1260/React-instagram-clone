@@ -60,6 +60,10 @@
         width: 62px;
     }
 
+    .side_bar_logo {
+        opacity: 0;
+    }
+
     .menu_text {
         opacity: 0;
         display: none;

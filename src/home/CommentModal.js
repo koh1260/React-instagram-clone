@@ -4,9 +4,8 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { BsBookmark } from "react-icons/bs";
-import CommentWriting from "./CommentWriting";
-import Comment from "./Comment";
-import { type } from "@testing-library/user-event/dist/type";
+import CommentWriting from "../components/molecules/CommentWriting";
+import Comment from "../components/molecules/Comment";
 import axios from "axios";
 
 function CommentModal({
@@ -42,9 +41,7 @@ function CommentModal({
       <div className={styles.comment_modal}>
         <div className={styles.content}>
           <div className={styles.image_container}>
-            <div className={styles.image_outer}>
               <img className={styles.content_image} src={postImage} />
-            </div>
           </div>
           <div className={styles.profile_and_comment_container}>
             {/* 프로필 */}

@@ -1,6 +1,6 @@
 .main{
     margin: 1rem 0;
-    width: 23.6rem;
+    width: 25rem;
 }
 .post{
     display: flex;
@@ -30,17 +30,18 @@
     flex-grow: 1;
 }
 .contents{
+    background-color: black;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 23.6rem;
+
     border-bottom: 1px #DBDBDB solid;
 }
 .content_image{
     flex-grow: 1;
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit:fill;
 }
 .post_footer{
     padding: 0 0.6rem;

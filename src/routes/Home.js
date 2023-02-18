@@ -1,11 +1,10 @@
-import SideBar from "../home/SideBar";
-import Story from "../home/Story";
-import Post from "../home/Post";
-import FrdRecommand from "../home/FrdRecommand";
+import SideBar from "../components/organisms/SideBar";
+import Story from "../components/organisms/Story";
+import Post from "../components/organisms/Post";
+import FrdRecommand from "../components/organisms/FrdRecommand";
 import Modal from "../components/Modal";
 import PostingModal from "../components/PostingModal";
 import styles from "./Home.module.css";
-import postDummy from "../db/post.json";
 import storyDummy from "../db/story.json";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -71,6 +70,7 @@ function Home() {
                 {posts.map((post) => (
                   <Post
                     key={post.postId}
+                    postId={post.postId}
                     user={post.User}
                     image={post.Images[0].imageUrl}
                     likes={20}

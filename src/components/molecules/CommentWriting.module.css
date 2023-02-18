@@ -4,6 +4,11 @@
     justify-content: center;
     margin-right: 0.2rem;
 }
+.comment_form{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
 .comment_writing{
     display: flex;
     flex-direction: row;
@@ -14,4 +19,19 @@
     border: 0;
     background-color: transparent;
     font-size: 0.8rem;
+    flex-grow: 1;
+}
+.comment_upload_btn{
+    border: 0;
+    background-color: transparent;
+    font-weight: 550;
+    color: #0095F6;
+}
+.disable{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.comment_upload_btn:hover{
+    color: black;
+    cursor: pointer;
 }

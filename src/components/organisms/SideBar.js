@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
+import { useState} from "react";
 import styles from "./SideBar.module.css";
-import instaLogo from "../img/instagram_icon.png";
+import instaLogo from "../../img/instagram_icon.png";
 import { GrSearch } from "react-icons/gr";
 import { AiOutlineCompass } from "react-icons/ai";
 import { IoPaperPlaneOutline } from "react-icons/io5";
@@ -10,11 +10,8 @@ import { CgProfile } from "react-icons/cg";
 import { GrHomeRounded } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiMoviePlay } from "react-icons/bi";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { useMediaQuery } from "react-responsive";
 import MenuBar from "./MenuBar";
-import Modal from "../components/Modal";
-import PostingModal from "../components/PostingModal";
+
 
 function SideBar({setOpenPosting}) {
   const [menuOpen, setMenuOpen] = useState(false);

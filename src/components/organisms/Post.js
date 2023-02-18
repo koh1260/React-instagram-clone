@@ -5,16 +5,29 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import { BsBookmark } from "react-icons/bs";
-import { VscSmiley } from "react-icons/vsc";
-import CommentModal from "./CommentModal";
-import CommentWriting from "./CommentWriting";
+import CommentModal from "../../home/CommentModal";
+import CommentWriting from "../molecules/CommentWriting";
+import CommentService from "../../api/comment";
 
-
-function Post({ user, image, content, likes, createAt, comments}) {
+function Post({ user, postId, image, content, likes, createAt, comments }) {
   const [openCommentModal, setOpenCommentModal] = useState(false);
+  const [comment, setComment] = useState("");
 
-  function openAllComment() {
-    setOpenCommentModal(true);
+  async function uploadComment(e) {
+    e.preventDefault();
+
+    const data = {
+      postId: postId,
+      content: comment,
+    };
+    try {
+      const response = await CommentService.post(data);
+      console.log(response);
+
+      setComment("");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -44,7 +57,7 @@ function Post({ user, image, content, likes, createAt, comments}) {
             {/* 댓글 버튼 */}
             <div className={styles.util_outer}>
               <HiOutlineChatBubbleOvalLeft
-                onClick={openAllComment}
+                onClick={() => setOpenCommentModal(true)}
                 className={styles.util}
               />
               {/* 댓글 모달 */}
@@ -85,7 +98,11 @@ function Post({ user, image, content, likes, createAt, comments}) {
 
         {/* 댓글 작성 */}
         <div>
-          <CommentWriting />
+          <CommentWriting
+            comment={comment}
+            setComment={setComment}
+            onSubmit={uploadComment}
+          />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import styles from "./FrdRecommand.module.css";
-import img from "../img/profile.jpeg"
-import RecommdedFrd from "./RecommandedFrd";
+import img from "../../img/profile.jpeg"
+import RecommdedFrd from "../molecules/RecommandedFrd";
 
 function FrdRecommand(){
     return (

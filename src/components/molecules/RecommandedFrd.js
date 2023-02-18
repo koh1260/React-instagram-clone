@@ -1,5 +1,5 @@
 import styles from "./RecommandedFrd.module.css";
-import img from "../img/profile.jpeg"
+import img from "../../img/profile.jpeg"
 
 function RecommandedFrd(){
     return (
