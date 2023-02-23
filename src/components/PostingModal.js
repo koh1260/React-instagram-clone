@@ -1,7 +1,6 @@
 import styles from "./PostingModal.module.css";
 import { ReactComponent as MediaIcon } from "../svg/svg-gobbler.svg";
 import { useRef, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthService from "../api/auth";
 import { ReactComponent as SmileIcon } from "../svg/svg-smile.svg";
@@ -12,27 +11,35 @@ function PostingModal({setOpenPosting}) {
   const [preview, setPreview] = useState();
   const [user, setUser] = useState();
   const [text, setText] = useState("");
-  const formData = new FormData();
   const fileData = useRef();
-  const navigate = useNavigate();
 
   const fileInput = useRef();
   function handleFileInput(event) {
     fileInput.current.click();
   }
 
-
   // 게시글 작성
   async function posting() {
+    const formData = new FormData();
     const data = {
       userId: user.userId,
       content: text,
     };
-    formData.append("postImage", fileData.current);
+    const file = fileData.current;
+    console.log('file: ',file);
+    formData.append('postImage', file);
     for (let key in data) {
       formData.append(key, data[key]);
     }
-    const response = await axios.post('http://localhost:4000/post/posting', formData);
+    const response = await axios({
+        method: 'post',
+        url: 'http://localhost:4000/post/posting',
+        data: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
     if(response.status === 200) setOpenPosting(false);
   }
 
@@ -48,7 +55,7 @@ function PostingModal({setOpenPosting}) {
       const url = reader.result;
       setPreview(
         <div className={styles.preview_image_outer}>
-          <img className={styles.preview_image} src={url} />
+          <img className={styles.preview_image} src={url}/>
         </div>
       );
     };
