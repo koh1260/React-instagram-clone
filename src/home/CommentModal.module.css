@@ -25,23 +25,25 @@
     max-width: calc(100vw - 128px);
     max-height: calc(100vh - 60px);
     margin: auto;
-    
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 7px;
 }
 .image_container{
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: black;
-    flex-grow: 1;
-    
+}
+.post_image_outer{
+max-height: 90%;
 }
 .image_outer{
     max-height: 90%;
     max-width: 100%;
-    aspect-ratio: 1/1;
 }
 .content_image{
-    object-fit: contain;
+    object-fit: cover;
     width: 100%;
     height: 100%;
 }
@@ -49,14 +51,17 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    width: 500px;
+    max-width: 500px;
+    min-width: 450px;
+    min-height: 500px;
+    max-height: 90%;
 }
 .profile{
     padding: 0.8rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 1px black solid;
+    border-bottom: 1px #C7C7C7 solid;
 }
 .profile_image_outer{
     margin-right: 0.8rem;
@@ -84,6 +89,7 @@
     padding-left: 0.8rem;
     padding-right: 0.8rem;
     flex-grow: 1;
+    border-bottom: 1px #C7C7C7 solid;
 }
 .post_content{
     max-width: 100%;
@@ -119,10 +125,16 @@
 .utils{
     display: flex;
     flex-direction: row;
-    border-bottom: 1px black solid;
+}
+.util{
+    padding: 0.5rem 0.7rem;
+}
+.util_right_space{
+    flex-grow: 1;
 }
 .likes_count{
-    border-bottom: 1px black solid;
+    padding-left: 0.8rem;
+    margin-bottom: 1rem;
 }
 .create_at{
     border-bottom: 1px black solid;
@@ -130,12 +142,15 @@
 .writing_comment{
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
 }
 .writing_comment_input{
     border: 0;
     background-color: transparent;
 }
-
+.writing_comment_component{
+    flex-grow: 1;
+}
 
 
 

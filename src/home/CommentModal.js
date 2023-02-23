@@ -1,12 +1,14 @@
 import styles from "./CommentModal.module.css";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import { AiOutlineHeart } from "react-icons/ai";
-import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
-import { IoPaperPlaneOutline } from "react-icons/io5";
-import { BsBookmark } from "react-icons/bs";
 import CommentWriting from "../components/molecules/CommentWriting";
 import Comment from "../components/molecules/Comment";
 import axios from "axios";
+import {ReactComponent as Heart} from '../svg/svg-heart.svg';
+import {ReactComponent as Bubble} from '../svg/svg-bubble.svg';
+import {ReactComponent as Airplane} from '../svg/svg-airplane.svg';
+import {ReactComponent as BookMark} from '../svg/svg-bookmark.svg';
+import { useState } from "react";
+
 
 function CommentModal({
   user,
@@ -15,33 +17,20 @@ function CommentModal({
   comments,
   content,
   likes,
-  createAt,
+  createdAt,
 }) {
-  function closeCommentModal() {
-    setOpenCommentModal(false);
-  }
-
-  async function getUser(userId){
-    const config = {
-      url: `http://localhost:4000/auth/user/${userId}`,
-      method: "get",
-    }
-
-    const response = await axios(config);
-    const user = response.data;
-    
-    return user;
-  }
 
   return (
     <div className={styles.main}>
-      <button onClick={closeCommentModal} className={styles.close_btn}>
+      <button onClick={() => setOpenCommentModal(false)} className={styles.close_btn}>
         X
       </button>
       <div className={styles.comment_modal}>
         <div className={styles.content}>
           <div className={styles.image_container}>
+            <div className={styles.post_image_outer}>
               <img className={styles.content_image} src={postImage} />
+            </div>
           </div>
           <div className={styles.profile_and_comment_container}>
             {/* 프로필 */}
@@ -54,64 +43,75 @@ function CommentModal({
                 <BiDotsHorizontalRounded />
               </div>
             </div>
-            
+
             {/* 게시글 내용, 댓글 */}
             <div className={styles.content_conatiner}>
-                {/* 게시글 내용 */}
-            <div className={styles.post_content}>
-              <div className={styles.post_content_profile_image_outer}>
-                <img className={styles.post_content_profile_image} src={user.profileImage} />
+              {/* 게시글 내용 */}
+              <div className={styles.post_content}>
+                <div className={styles.post_content_profile_image_outer}>
+                  <img
+                    className={styles.post_content_profile_image}
+                    src={user.profileImage}
+                  />
+                </div>
+
+                <div
+                  className={
+                    styles.post_content_post_content_id_and_content_outer
+                  }
+                >
+                  {/* 아이디, 내용 */}
+                  <div className={styles.post_content_id_and_content}>
+                    <span className={styles.post_content_user_id}>
+                      {user.id}
+                    </span>
+                    <span className={styles.post_content_content}>
+                      {content}
+                    </span>
+                  </div>
+                  {/* 게시날 */}
+                  <div className={styles.post_content_create_at}>
+                    <div>{createdAt}</div>
+                  </div>
+                </div>
               </div>
 
-              <div className={styles.post_content_post_content_id_and_content_outer}>
-                {/* 아이디, 내용 */}
-                <div className={styles.post_content_id_and_content}>
-                  <span className={styles.post_content_user_id}>{user.id}</span>
-                  <span className={styles.post_content_content}>{content}</span>
-                </div>
-                {/* 게시날 */}
-                <div className={styles.post_content_create_at}>
-                  <div>{createAt}</div>
-                </div>
-              </div>
-            </div>
-
-            {/* 댓글 */}
-            <div className={styles.comment}>
-                {comments.map(comment => (
-                    <Comment 
-                        key={comment.commentId}
-                        user={getUser(comment.userId)}
-                        content={comment.content}
-                        likes={20}
-                        createAt={comment.createAt}
-                        /> 
+              {/* 댓글 */}
+              <div className={styles.comment}>
+                {comments.map((comment) => (
+                  <Comment
+                    key={comment.commentId}
+                    user={comment.User}
+                    content={comment.content}
+                    likes={20}
+                    createdAt={comment.createdAt}
+                  />
                 ))}
+              </div>
             </div>
-
-            </div>
-            
 
             {/* 좋아요 ~ 댓글 달기 */}
             <div>
               <div className={styles.utils}>
-                <div>
-                  <AiOutlineHeart />
+                <div className={styles.util}> 
+                  <Heart />
                 </div>
-                <div>
-                  <HiOutlineChatBubbleOvalLeft />
+                <div className={styles.util}>
+                  <Bubble />
                 </div>
-                <div>
-                  <IoPaperPlaneOutline />
+                <div className={`${styles.util} ${styles.util_right_space}`}>
+                  <Airplane />
                 </div>
-                <div>
-                  <BsBookmark />
+                <div className={styles.util}>
+                  <BookMark />
                 </div>
               </div>
-              <div className={styles.likes_count}>{likes}</div>
-              <div className={styles.create_at}>{createAt}</div>
+              <div className={styles.likes_count}>{`좋아요 ${likes}개`}</div>
+              <div className={styles.create_at}>{createdAt}</div>
               <div className={styles.writing_comment}>
-                <CommentWriting />
+                <CommentWriting 
+                className={styles.writing_comment_component}
+                />
               </div>
             </div>
           </div>

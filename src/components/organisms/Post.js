@@ -1,30 +1,32 @@
 import { useState } from "react";
 import styles from "./Post.module.css";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import { AiOutlineHeart } from "react-icons/ai";
-import { HiOutlineChatBubbleOvalLeft } from "react-icons/hi2";
-import { IoPaperPlaneOutline } from "react-icons/io5";
-import { BsBookmark } from "react-icons/bs";
 import CommentModal from "../../home/CommentModal";
 import CommentWriting from "../molecules/CommentWriting";
 import CommentService from "../../api/comment";
+import {ReactComponent as Heart} from '../../svg/svg-heart.svg';
+import {ReactComponent as Bubble} from '../../svg/svg-bubble.svg';
+import {ReactComponent as Airplane} from '../../svg/svg-airplane.svg';
+import {ReactComponent as BookMark} from '../../svg/svg-bookmark.svg';
 
-function Post({ user, postId, image, content, likes, createAt, comments }) {
+function Post({ user, postId, image, content, likes, createdAt, comments }) {
   const [openCommentModal, setOpenCommentModal] = useState(false);
-  const [comment, setComment] = useState("");
+  const [newComment, setNewComment] = useState("");
+  const [commentCount, setCommentCount] = useState(comments.length);
 
   async function uploadComment(e) {
     e.preventDefault();
 
     const data = {
       postId: postId,
-      content: comment,
+      content: newComment,
     };
     try {
       const response = await CommentService.post(data);
       console.log(response);
 
-      setComment("");
+      setCommentCount((current) => current + 1);
+      setNewComment("");
     } catch (err) {
       console.log(err);
     }
@@ -51,12 +53,12 @@ function Post({ user, postId, image, content, likes, createAt, comments }) {
         <div className={styles.post_footer}>
           <div className={styles.utils}>
             <div className={styles.util_outer}>
-              <AiOutlineHeart className={styles.util} />
+              <Heart className={styles.util} />
             </div>
 
             {/* 댓글 버튼 */}
             <div className={styles.util_outer}>
-              <HiOutlineChatBubbleOvalLeft
+              <Bubble
                 onClick={() => setOpenCommentModal(true)}
                 className={styles.util}
               />
@@ -67,7 +69,7 @@ function Post({ user, postId, image, content, likes, createAt, comments }) {
                   user={user}
                   content={content}
                   likes={likes}
-                  createAt={createAt}
+                  createdAt={createdAt}
                   comments={comments}
                   postImage={image}
                 />
@@ -75,11 +77,11 @@ function Post({ user, postId, image, content, likes, createAt, comments }) {
             </div>
 
             <div className={styles.util_outer}>
-              <IoPaperPlaneOutline className={styles.util} />
+              <Airplane className={styles.util} />
             </div>
 
             <div className={styles.book_mark_outer}>
-              <BsBookmark className={`${styles.util} ${styles.book_mark}`} />
+              <BookMark className={`${styles.util} ${styles.book_mark}`} />
             </div>
           </div>
 
@@ -88,19 +90,20 @@ function Post({ user, postId, image, content, likes, createAt, comments }) {
             <span className={styles.post_user}>{user.nickname}</span>
             <span className={styles.content}>{content}</span>
           </div>
-          {comments.length ? (
+          {commentCount ? (
             <div
+              onClick={() => setOpenCommentModal(true)}
               className={styles.comments_count}
-            >{`댓글 ${comments.length}개 모두 보기`}</div>
+            >{`댓글 ${commentCount}개 모두 보기`}</div>
           ) : null}
-          <div className={styles.create_at}>{createAt}</div>
+          <div className={styles.create_at}>{createdAt}</div>
         </div>
 
         {/* 댓글 작성 */}
         <div>
           <CommentWriting
-            comment={comment}
-            setComment={setComment}
+            comment={newComment}
+            setComment={setNewComment}
             onSubmit={uploadComment}
           />
         </div>

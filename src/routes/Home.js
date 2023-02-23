@@ -74,7 +74,7 @@ function Home() {
                     user={post.User}
                     image={post.Images[0].imageUrl}
                     likes={20}
-                    createAt={post.createAt}
+                    createdAt={post.createdAt}
                     content={post.content}
                     comments={post.Comments}
                   />

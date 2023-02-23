@@ -61,6 +61,10 @@
     width: 1.2rem;
     height: 1.2rem;
     padding: 0.6rem 0.6rem 0.6rem 0;
+    cursor: pointer;
+}
+.util:hover{
+    fill: #DBDBDB;
 }
 .book_mark_outer{
     display: flex;
@@ -91,6 +95,7 @@
 .comments_count{
     color: #8E8E8E;
     font-size: 0.75rem;
+    cursor: pointer;
 }
 .create_at{
     color: #8E8E8E;
