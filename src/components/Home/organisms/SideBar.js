@@ -1,6 +1,6 @@
 import { useState} from "react";
 import styles from "./SideBar.module.css";
-import instaLogo from "../../img/instagram_icon.png";
+import instaLogo from "../../../img/instagram_icon.png";
 import { GrSearch } from "react-icons/gr";
 import { AiOutlineCompass } from "react-icons/ai";
 import { IoPaperPlaneOutline } from "react-icons/io5";

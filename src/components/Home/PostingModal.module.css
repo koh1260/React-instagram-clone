@@ -58,6 +58,7 @@
     margin-top: 1rem;
     font-size: 0.9rem;
     font-weight: 550;
+    cursor: pointer;
 }
 .file_select_btn{
     display: none;
@@ -81,6 +82,7 @@
 .contents_container{
     width: 485px;
     border-left: 1px #C7C7C7 solid;
+    min-width: 350px;
 }
 
 .profile{

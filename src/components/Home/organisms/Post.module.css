@@ -66,6 +66,9 @@
 .util:hover{
     fill: #DBDBDB;
 }
+.util_heart{
+    
+}
 .book_mark_outer{
     display: flex;
     flex-direction: row;

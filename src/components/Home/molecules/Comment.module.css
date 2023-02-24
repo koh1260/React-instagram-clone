@@ -8,6 +8,7 @@
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 70px; 
+    border: 1px #C7C7C7 solid;
 }
 .comment_profile_image_outer{
     display: flex;

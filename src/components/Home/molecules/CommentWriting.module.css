@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 0.2rem;
+    margin-right: 0.7rem;
 }
 .comment_form{
     display: flex;
@@ -12,6 +12,7 @@
 .comment_writing{
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
     padding: 0.5rem 0.6rem;
     border-top: 1px #DBDBDB solid;
 }

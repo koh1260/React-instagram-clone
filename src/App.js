@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import LoginPage from "./routes/LoginPage";
 import Home from "./routes/Home";
-
+import ProfilePage from './routes/ProfilePage';
 
 function App() {
   const router = createBrowserRouter([
@@ -17,6 +17,10 @@ function App() {
     {
       path: "/home",
       element: <Home />
+    },
+    {
+      path: "/profile",
+      element: <ProfilePage />
     }
   ]);
 

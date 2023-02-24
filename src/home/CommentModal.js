@@ -1,7 +1,7 @@
 import styles from "./CommentModal.module.css";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import CommentWriting from "../components/molecules/CommentWriting";
-import Comment from "../components/molecules/Comment";
+import CommentWriting from "../components/Home/molecules/CommentWriting";
+import Comment from "../components/Home/molecules/Comment";
 import axios from "axios";
 import {ReactComponent as Heart} from '../svg/svg-heart.svg';
 import {ReactComponent as Bubble} from '../svg/svg-bubble.svg';

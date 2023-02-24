@@ -1,6 +1,6 @@
 import Login from "./Login";
 import SignUp from "./SignUp";
-import Animation from "../components/atoms/Animation";
+import Animation from "../components/Home/atoms/Animation";
 import styles from "./Article.module.css";
 import { useMediaQuery } from "react-responsive";
 import { useState } from "react";

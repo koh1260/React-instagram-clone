@@ -71,7 +71,8 @@ max-height: 90%;
 .profile_image{
     width: 2rem;
     height: 2rem;
-    border-radius: 70px;    
+    border-radius: 70px;
+    border: 1px #C7C7C7 solid;
 }
 .profile_userid{
     flex-grow: 1;
@@ -120,6 +121,7 @@ max-height: 90%;
     width: 1.8rem;
     height: 1.8rem;
     border-radius: 70px; 
+    border: 1px #C7C7C7 solid;
 }
 
 .utils{

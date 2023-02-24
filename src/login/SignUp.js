@@ -1,7 +1,7 @@
 import styles from "./SignUp.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
-import SignUpForm from "../components/molecules/SignUpForm";
+import SignUpForm from "../components/Home/molecules/SignUpForm";
 
 function SignUp({ setSignUpPage }) {
   function handleSighUpPage() {

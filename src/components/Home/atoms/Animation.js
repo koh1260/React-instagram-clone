@@ -1,4 +1,4 @@
-import loginImage from "../../img/loginImage.png";
+import loginImage from "../../../img/loginImage.png";
 
 function Animation(){
     return (

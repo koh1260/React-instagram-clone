@@ -1,11 +1,11 @@
 import styles from "./CommentWriting.module.css";
-import { VscSmiley } from "react-icons/vsc";
+import {ReactComponent as Smile} from '../../../svg/svg-smile.svg';
 
 function CommentWriting({ comment, setComment, onSubmit }) {
   return (
     <div className={styles.comment_writing}>
       <div className={styles.comment_icon_outer}>
-        <VscSmiley className={styles.comment_icon} />
+        <Smile className={styles.comment_icon} />
       </div>
       <form onSubmit={onSubmit} className={styles.comment_form}>
         <input
@@ -15,7 +15,7 @@ function CommentWriting({ comment, setComment, onSubmit }) {
           value={comment}
         />
         <button disabled={!comment} className={styles.comment_upload_btn}>
-          게시dd
+          게시
         </button>
       </form>
     </div>

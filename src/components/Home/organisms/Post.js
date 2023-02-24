@@ -1,13 +1,13 @@
 import { useState } from "react";
 import styles from "./Post.module.css";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import CommentModal from "../../home/CommentModal";
+import CommentModal from "../../../home/CommentModal";
 import CommentWriting from "../molecules/CommentWriting";
-import CommentService from "../../api/comment";
-import {ReactComponent as Heart} from '../../svg/svg-heart.svg';
-import {ReactComponent as Bubble} from '../../svg/svg-bubble.svg';
-import {ReactComponent as Airplane} from '../../svg/svg-airplane.svg';
-import {ReactComponent as BookMark} from '../../svg/svg-bookmark.svg';
+import CommentService from "../../../api/comment";
+import {ReactComponent as Heart} from '../../../svg/svg-heart.svg';
+import {ReactComponent as Bubble} from '../../../svg/svg-bubble.svg';
+import {ReactComponent as Airplane} from '../../../svg/svg-airplane.svg';
+import {ReactComponent as BookMark} from '../../../svg/svg-bookmark.svg';
 
 function Post({ user, postId, image, content, likes, createdAt, comments }) {
   const [openCommentModal, setOpenCommentModal] = useState(false);
@@ -53,7 +53,7 @@ function Post({ user, postId, image, content, likes, createdAt, comments }) {
         <div className={styles.post_footer}>
           <div className={styles.utils}>
             <div className={styles.util_outer}>
-              <Heart className={styles.util} />
+              <Heart className={`${styles.util} ${styles.util_heart}`} />
             </div>
 
             {/* 댓글 버튼 */}

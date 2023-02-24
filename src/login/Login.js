@@ -2,8 +2,8 @@ import { useState } from "react";
 import styles from "./Login.module.css";
 import { GrFacebook } from "react-icons/gr";
 import instaLogo from "../img/instagram_icon.png";
-import LoginForm from "../components/molecules/LoginForm";
-import OrLine from "../components/atoms/OrLine";
+import LoginForm from "../components/Home/molecules/LoginForm";
+import OrLine from "../components/Home/atoms/OrLine";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 

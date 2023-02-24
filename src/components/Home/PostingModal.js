@@ -1,11 +1,11 @@
 import styles from "./PostingModal.module.css";
-import { ReactComponent as MediaIcon } from "../svg/svg-gobbler.svg";
+import { ReactComponent as MediaIcon } from "../../svg/svg-gobbler.svg";
 import { useRef, useState, useEffect } from "react";
 import axios from "axios";
-import AuthService from "../api/auth";
-import { ReactComponent as SmileIcon } from "../svg/svg-smile.svg";
-import { ReactComponent as GioIcon } from "../svg/svg-gio.svg";
-import { ReactComponent as Arrow } from "../svg/svg-arrow.svg";
+import AuthService from "../../api/auth";
+import { ReactComponent as SmileIcon } from "../../svg/svg-smile.svg";
+import { ReactComponent as GioIcon } from "../../svg/svg-gio.svg";
+import { ReactComponent as Arrow } from "../../svg/svg-arrow.svg";
 
 function PostingModal({setOpenPosting}) {
   const [preview, setPreview] = useState();
