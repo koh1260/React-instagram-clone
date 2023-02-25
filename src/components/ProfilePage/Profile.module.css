@@ -1,0 +1,54 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px #c7c7c7 solid;
+}
+.profile_image_outer{
+    padding: 2rem 5rem;
+}
+.profile_image{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+.profile_contents{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+.profile_contents_top{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.2rem;
+    align-items: center;
+}
+.profile_contents_top_nickname{
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+.profile_contents_top_adit_btn{
+    margin-right: 1rem;
+    border: 0;
+    height: 1.7rem;
+    width: 5.5rem;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.profile_contents_top_setting_btn{
+    cursor: pointer;
+}
+.profile_contents_mid{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1.2rem;
+}
+.profile_contents_mid_item{
+    margin-right: 1.8rem;
+}
+.profile_contents_bottom{
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9rem;
+}
