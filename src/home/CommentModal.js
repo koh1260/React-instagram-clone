@@ -7,18 +7,47 @@ import {ReactComponent as Heart} from '../svg/svg-heart.svg';
 import {ReactComponent as Bubble} from '../svg/svg-bubble.svg';
 import {ReactComponent as Airplane} from '../svg/svg-airplane.svg';
 import {ReactComponent as BookMark} from '../svg/svg-bookmark.svg';
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
+import CommentService from '../api/comment';
 
 function CommentModal({
+  postId,
   user,
   setOpenCommentModal,
   postImage,
-  comments,
   content,
   likes,
   createdAt,
 }) {
+const [comments, setComments] = useState();
+const [newComment, setNewComment] = useState("");
+
+
+  useEffect(() => {
+    async function getComments(){
+      const response = await CommentService.getComments(postId);
+      const comments = response.data;
+      setComments(comments);
+    }
+    getComments();
+  }, [comments]);
+
+  async function uploadComment(e) {
+    e.preventDefault();
+
+    const data = {
+      postId: postId,
+      content: newComment,
+    };
+    try {
+      const response = await CommentService.post(data);
+      console.log(response);
+
+      setNewComment("");
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div className={styles.main}>
@@ -78,15 +107,18 @@ function CommentModal({
 
               {/* 댓글 */}
               <div className={styles.comment}>
-                {comments.map((comment) => (
-                  <Comment
-                    key={comment.commentId}
-                    user={comment.User}
-                    content={comment.content}
-                    likes={20}
-                    createdAt={comment.createdAt}
-                  />
-                ))}
+                {comments ? (
+                  comments.map((comment) => (
+                    <Comment
+                      key={comment.commentId}
+                      user={comment.User}
+                      content={comment.content}
+                      likes={20}
+                      createdAt={comment.createdAt}
+                    />
+                  ))
+                ): <div>Loading....</div>}
+            
               </div>
             </div>
 
@@ -110,6 +142,9 @@ function CommentModal({
               <div className={styles.create_at}>{createdAt}</div>
               <div className={styles.writing_comment}>
                 <CommentWriting 
+                comment={newComment}
+                onSubmit={uploadComment}
+                setComment={setNewComment}
                 className={styles.writing_comment_component}
                 />
               </div>

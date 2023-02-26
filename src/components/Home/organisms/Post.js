@@ -66,6 +66,7 @@ function Post({ user, postId, image, content, likes, createdAt, comments }) {
               {openCommentModal ? (
                 <CommentModal
                   setOpenCommentModal={setOpenCommentModal}
+                  postId={postId}
                   user={user}
                   content={content}
                   likes={likes}
