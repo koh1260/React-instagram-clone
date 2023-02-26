@@ -3,12 +3,12 @@ import { BiDotsHorizontalRounded } from "react-icons/bi";
 import CommentWriting from "../components/Home/molecules/CommentWriting";
 import Comment from "../components/Home/molecules/Comment";
 import axios from "axios";
-import {ReactComponent as Heart} from '../svg/svg-heart.svg';
-import {ReactComponent as Bubble} from '../svg/svg-bubble.svg';
-import {ReactComponent as Airplane} from '../svg/svg-airplane.svg';
-import {ReactComponent as BookMark} from '../svg/svg-bookmark.svg';
+import { ReactComponent as Heart } from "../svg/svg-heart.svg";
+import { ReactComponent as Bubble } from "../svg/svg-bubble.svg";
+import { ReactComponent as Airplane } from "../svg/svg-airplane.svg";
+import { ReactComponent as BookMark } from "../svg/svg-bookmark.svg";
 import { useState, useEffect } from "react";
-import CommentService from '../api/comment';
+import CommentService from "../api/comment";
 
 function CommentModal({
   postId,
@@ -19,12 +19,11 @@ function CommentModal({
   likes,
   createdAt,
 }) {
-const [comments, setComments] = useState();
-const [newComment, setNewComment] = useState("");
-
+  const [comments, setComments] = useState();
+  const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    async function getComments(){
+    async function getComments() {
       const response = await CommentService.getComments(postId);
       const comments = response.data;
       setComments(comments);
@@ -51,7 +50,11 @@ const [newComment, setNewComment] = useState("");
 
   return (
     <div className={styles.main}>
-      <button onClick={() => setOpenCommentModal(false)} className={styles.close_btn}>
+      <button
+        type="button"
+        onClick={() => setOpenCommentModal(false)}
+        className={styles.close_btn}
+      >
         X
       </button>
       <div className={styles.comment_modal}>
@@ -117,15 +120,16 @@ const [newComment, setNewComment] = useState("");
                       createdAt={comment.createdAt}
                     />
                   ))
-                ): <div>Loading....</div>}
-            
+                ) : (
+                  <div>Loading....</div>
+                )}
               </div>
             </div>
 
             {/* 좋아요 ~ 댓글 달기 */}
             <div>
               <div className={styles.utils}>
-                <div className={styles.util}> 
+                <div className={styles.util}>
                   <Heart />
                 </div>
                 <div className={styles.util}>
@@ -141,11 +145,11 @@ const [newComment, setNewComment] = useState("");
               <div className={styles.likes_count}>{`좋아요 ${likes}개`}</div>
               <div className={styles.create_at}>{createdAt}</div>
               <div className={styles.writing_comment}>
-                <CommentWriting 
-                comment={newComment}
-                onSubmit={uploadComment}
-                setComment={setNewComment}
-                className={styles.writing_comment_component}
+                <CommentWriting
+                  comment={newComment}
+                  onSubmit={uploadComment}
+                  setComment={setNewComment}
+                  className={styles.writing_comment_component}
                 />
               </div>
             </div>

@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
 }
 .comment_modal{
     width: 100%;
@@ -164,4 +165,5 @@ max-height: 90%;
     top: 8px;
     right: 22px;
     font-size: 20px;
+    cursor: pointer;
 }
