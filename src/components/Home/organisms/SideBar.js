@@ -1,4 +1,5 @@
 import { useState} from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./SideBar.module.css";
 import instaLogo from "../../../img/instagram_icon.png";
 import { GrSearch } from "react-icons/gr";
@@ -14,6 +15,7 @@ import MenuBar from "./MenuBar";
 
 
 function SideBar({setOpenPosting}) {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   function openMeunBar() {
@@ -39,7 +41,9 @@ function SideBar({setOpenPosting}) {
         <div className={styles.menus}>
           <div onClick={(i) => console.log(i)} className={styles.menu}>
             <span>
-              <GrHomeRounded className={styles.menu_icon} />
+              <GrHomeRounded 
+                onClick={() => navigate('/home')}
+                className={styles.menu_icon} />
             </span>
             <span className={styles.menu_text}>홈</span>
           </div>
@@ -83,7 +87,9 @@ function SideBar({setOpenPosting}) {
           </div>
           <div className={styles.menu}>
             <span>
-              <CgProfile className={styles.menu_icon} />
+              <CgProfile 
+              onClick={() => navigate('/profile')}
+              className={styles.menu_icon} />
             </span>
             <span className={styles.menu_text}>프로필</span>
           </div>
