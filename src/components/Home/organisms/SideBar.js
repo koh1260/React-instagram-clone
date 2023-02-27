@@ -1,5 +1,5 @@
 import { useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styles from "./SideBar.module.css";
 import instaLogo from "../../../img/instagram_icon.png";
 import { GrSearch } from "react-icons/gr";
@@ -14,7 +14,7 @@ import { BiMoviePlay } from "react-icons/bi";
 import MenuBar from "./MenuBar";
 
 
-function SideBar({setOpenPosting}) {
+function SideBar({setOpenPosting, loginedUser}) {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -85,6 +85,7 @@ function SideBar({setOpenPosting}) {
             </span>
             <span className={styles.menu_text}>만들기</span>
           </div>
+          <Link to={`/${loginedUser}`}>
           <div className={styles.menu}>
             <span>
               <CgProfile 
@@ -93,6 +94,7 @@ function SideBar({setOpenPosting}) {
             </span>
             <span className={styles.menu_text}>프로필</span>
           </div>
+          </Link>
         </div>
 
         <div typeof="button" onClick={openMeunBar} className={styles.menu}>
