@@ -20,6 +20,9 @@ class AuthService{
     user(userId){
         return http.get(`/auth/user/${userId}`);
     }
+    userByNickname(nickname){
+        return http.get(`/auth/user-nickname/${nickname}`);
+    }
 }
 
 export default new AuthService();

@@ -7,6 +7,7 @@ import {
 import LoginPage from "./routes/LoginPage";
 import Home from "./routes/Home";
 import ProfilePage from './routes/ProfilePage';
+import GlobalStyle from "./globalStyles";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,11 +20,16 @@ function App() {
       element: <Home />
     },
     {
-      path: "/profile",
+      path: "/:nickname",
       element: <ProfilePage />
     }
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </>
+  );
 }
 export default App;
