@@ -13,6 +13,7 @@ function MenuBar() {
     axios.get("http://localhost:4000/auth/logout").then((response) => {
       if (response.status === 200) {
         console.log(response);
+        window.sessionStorage.removeItem('nickname');
         navigate("/")
     };
     });
