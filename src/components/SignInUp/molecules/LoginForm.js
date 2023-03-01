@@ -1,6 +1,6 @@
 import styles from "./LoginForm.module.css";
-import SignInUpInput from "../atoms/SignInUpInput";
-import SignInUpButton from "../atoms/SignInUpButton";
+import SignInUpInput from "../../Home/atoms/SignInUpInput";
+import SignInUpButton from "../../Home/atoms/SignInUpButton";
 //placeholder, onChange, value
 function LoginForm({
   onSubmit,

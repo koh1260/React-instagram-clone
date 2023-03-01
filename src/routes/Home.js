@@ -13,13 +13,12 @@ import axios from "axios";
 function Home() {
   const [posts, setPosts] = useState([]);
   const [openPosting, setOpenPosting] = useState(false);
-  const userId = window.sessionStorage.getItem("userId");
+  const nickname = window.sessionStorage.getItem("nickname");
 
   useEffect(() => {
     const config = {
       method: "get",
       url: "http://localhost:4000/post/test",
-      data: { userId: Number(userId) },
       withCredentials: true,
     };
 
@@ -41,7 +40,9 @@ function Home() {
       ) : (
         <div>
           <div className={styles.side_bar}>
-            <SideBar setOpenPosting={setOpenPosting}/>
+            <SideBar 
+              loginedUser={nickname}
+              setOpenPosting={setOpenPosting}/>
           </div>
           {/* 게시글 작성 모달 */}
           {openPosting ? (

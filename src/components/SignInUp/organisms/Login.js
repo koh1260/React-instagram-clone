@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 import { GrFacebook } from "react-icons/gr";
-import instaLogo from "../img/instagram_icon.png";
-import LoginForm from "../components/Home/molecules/LoginForm";
-import OrLine from "../components/Home/atoms/OrLine";
+import instaLogo from "../../../img/instagram_icon.png";
+import LoginForm from "../molecules/LoginForm";
+import OrLine from "../../Home/atoms/OrLine";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 
@@ -38,8 +38,8 @@ function Login({ setSignUpPage }) {
     axios(config)
       .then((response) => {
         if(response.status === 200){
-          console.log(response.data);
-          myStorage.setItem("userId", response.data.userId)
+          console.log('session storege에 저장할 값: ',response.data.nickname);
+          myStorage.setItem("nickname", response.data.nickname)
           navigate('/home');
         }
       })
