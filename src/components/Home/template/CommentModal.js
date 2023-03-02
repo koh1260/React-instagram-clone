@@ -1,14 +1,13 @@
 import styles from "./CommentModal.module.css";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import CommentWriting from "../components/Home/molecules/CommentWriting";
-import Comment from "../components/Home/molecules/Comment";
-import axios from "axios";
-import { ReactComponent as Heart } from "../svg/svg-heart.svg";
-import { ReactComponent as Bubble } from "../svg/svg-bubble.svg";
-import { ReactComponent as Airplane } from "../svg/svg-airplane.svg";
-import { ReactComponent as BookMark } from "../svg/svg-bookmark.svg";
+import CommentWriting from "../molecules/CommentWriting";
+import Comment from "../molecules/Comment";
+import { ReactComponent as Heart } from "../../../svg/svg-heart.svg";
+import { ReactComponent as Bubble } from "../../../svg/svg-bubble.svg";
+import { ReactComponent as Airplane } from "../../../svg/svg-airplane.svg";
+import { ReactComponent as BookMark } from "../../../svg/svg-bookmark.svg";
 import { useState, useEffect } from "react";
-import CommentService from "../api/comment";
+import CommentService from "../../../api/comment";
 
 function CommentModal({
   postId,

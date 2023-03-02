@@ -1,11 +1,11 @@
-import SideBar from "../components/Home/organisms/SideBar";
-import Story from "../components/Home/organisms/Story";
-import Post from "../components/Home/organisms/Post";
-import FrdRecommand from "../components/Home/organisms/FrdRecommand";
-import Modal from "../components/Home/Modal";
-import PostingModal from "../components/Home/PostingModal";
+import SideBar from "../organisms/SideBar";
+import Story from "../organisms/Story";
+import Post from "../organisms/Post";
+import FrdRecommand from "../organisms/FrdRecommand";
+import Modal from "../Modal";
+import PostingModal from "../PostingModal";
 import styles from "./Home.module.css";
-import storyDummy from "../db/story.json";
+import storyDummy from "../../../db/story.json";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";

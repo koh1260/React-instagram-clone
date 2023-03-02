@@ -1,5 +1,5 @@
-import Article from "../components/SignInUp/template/Article";
-import Footer from "../components/SignInUp/organisms/Footer";
+import Article from "../template/Article";
+import Footer from "../organisms/Footer";
 import styles from "./LoginPage.module.css"
 
 function LoginPage(){

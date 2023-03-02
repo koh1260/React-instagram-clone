@@ -1,30 +1,12 @@
 import {
-  createBrowserRouter,
   RouterProvider,
   Route,
   Link,
 } from "react-router-dom";
-import LoginPage from "./routes/LoginPage";
-import Home from "./routes/Home";
-import ProfilePage from './routes/ProfilePage';
-import GlobalStyle from "./globalStyles";
+import GlobalStyle from "./style/globalStyles";
+import router from './router/router';
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <LoginPage />
-    },
-    {
-      path: "/home",
-      element: <Home />
-    },
-    {
-      path: "/:nickname",
-      element: <ProfilePage />
-    }
-  ]);
-
   return (
     <>
       <GlobalStyle />

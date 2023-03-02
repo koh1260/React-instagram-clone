@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Post.module.css";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
-import CommentModal from "../../../home/CommentModal";
+import CommentModal from "../template/CommentModal";
 import CommentWriting from "../molecules/CommentWriting";
 import CommentService from "../../../api/comment";
 import {ReactComponent as Heart} from '../../../svg/svg-heart.svg';

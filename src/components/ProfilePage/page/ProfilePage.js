@@ -1,11 +1,11 @@
 import styles from "./ProfilePage.module.css";
-import SideBar from "../components/Home/organisms/SideBar";
-import Profile from "../components/ProfilePage/Profile";
-import MenuBar from "../components/ProfilePage/MenuBar";
-import ProfilePost from "../components/ProfilePage/ProfilePost";
+import SideBar from "../../Home/organisms/SideBar";
+import Profile from "../Profile";
+import MenuBar from "../MenuBar";
+import ProfilePost from "../ProfilePost";
 import { useEffect, useState } from "react";
-import PostService from "../api/post";
-import AuthService from '../api/auth';
+import PostService from "../../../api/post";
+import AuthService from '../../../api/auth';
 import { useParams } from "react-router-dom";
 
 export default function ProfilePage() {
@@ -29,14 +29,6 @@ export default function ProfilePage() {
     getUserInfo();
     getPosts();
   }, []);
-
-  // function postsView(){
-  //   for(let i =0; i < Math.ceil(posts.length / 3); i++){
-  //     <div>
-
-  //     </div>
-  //   }
-  // }
 
   return (
     <div>

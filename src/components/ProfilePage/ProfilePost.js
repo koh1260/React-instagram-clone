@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./ProfilePost.module.css";
 import { AiFillHeart } from "react-icons/ai";
 import { HiChatBubbleOvalLeft } from "react-icons/hi2";
-import CommentModal from "../../home/CommentModal";
+import CommentModal from "../Home/template/CommentModal";
 
 export default function ProfilePost({
   postId,
