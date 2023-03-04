@@ -6,6 +6,7 @@ import {
 import GlobalStyle from "./style/globalStyles";
 import router from './router/router';
 
+
 function App() {
   return (
     <>
