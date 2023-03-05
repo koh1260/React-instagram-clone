@@ -23,8 +23,6 @@ function LoginForm({
   const email = useSelector((state) => state.login.email);
   const password = useSelector((state) => state.login.password);
   const myStorage = window.sessionStorage;
-  console.log("email: ", email);
-  console.log("password: ", password);
 
   function loginSubmit(e) {
     e.preventDefault();
@@ -52,12 +50,12 @@ function LoginForm({
   // dispatch를 하는데 하나만 하니까 다른 하나의 값은 undifined로 업데이트되는 거 같다.
   function handleInputEmail(e) {
     dipatch(
-      loginSlice.actions.login({ email: e.target.value, password: password })
+      loginSlice.actions.inputEmail({ email: e.target.value})
     );
   }
   function handleInputPassword(e) {
     dipatch(
-      loginSlice.actions.login({ email: email, password: e.target.value })
+      loginSlice.actions.inputPassword({ password: e.target.value })
     );
   }
 

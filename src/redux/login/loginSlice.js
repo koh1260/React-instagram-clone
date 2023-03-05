@@ -7,11 +7,11 @@ const loginSlice = createSlice({
         password: ""
     },
     reducers:{
-        login: (state, action) => {
-            console.log('login action: ', action);
+        inputEmail: (state, action) => {
             state.email = action.payload.email;
+        },
+        inputPassword: (state, action) => {
             state.password = action.payload.password;
-            console.log('login state: ', state);
         }
     }
 });
