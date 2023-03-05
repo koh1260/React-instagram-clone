@@ -4,10 +4,10 @@ import { BiDotsHorizontalRounded } from "react-icons/bi";
 import CommentModal from "../template/CommentModal";
 import CommentWriting from "../molecules/CommentWriting";
 import CommentService from "../../../api/comment";
-import {ReactComponent as Heart} from '../../../svg/svg-heart.svg';
-import {ReactComponent as Bubble} from '../../../svg/svg-bubble.svg';
-import {ReactComponent as Airplane} from '../../../svg/svg-airplane.svg';
-import {ReactComponent as BookMark} from '../../../svg/svg-bookmark.svg';
+import {ReactComponent as Heart} from '../../../assets/svg/svg-heart.svg';
+import {ReactComponent as Bubble} from '../../../assets/svg/svg-bubble.svg';
+import {ReactComponent as Airplane} from '../../../assets/svg/svg-airplane.svg';
+import {ReactComponent as BookMark} from '../../../assets/svg/svg-bookmark.svg';
 
 function Post({ user, postId, image, content, likes, createdAt, comments }) {
   const [openCommentModal, setOpenCommentModal] = useState(false);
