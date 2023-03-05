@@ -1,51 +1,11 @@
-import { useState } from "react";
 import styles from "./Login.module.css";
 import { GrFacebook } from "react-icons/gr";
-import instaLogo from "../../../img/instagram_icon.png";
+import instaLogo from "../../../assets/img/instagram_icon.png";
 import LoginForm from "../molecules/LoginForm";
 import OrLine from "../../Home/atoms/OrLine";
-import {useNavigate} from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
-function Login({ setSignUpPage }) {
-  const [inputId, setInputId] = useState("");
-  const [inputPw, setInputPw] = useState("");
-  const navigate = useNavigate();
-  const myStorage = window.sessionStorage;
-
-  function handleInputId(event) {
-    setInputId(event.target.value);
-  }
-  function handleInputPw(event) {
-    setInputPw(event.target.value);
-  }
-  function handleSignUpPage() {
-    setSignUpPage(true);
-  }
-  function loginSubmit(event) {
-    event.preventDefault();
-    const data = {
-      email: inputId,
-      password: inputPw
-    };
-    const config = {
-      method: 'post',
-      url: 'http://localhost:4000/auth/login',
-      data: data,
-      withCredentials: true
-    }
-
-    axios(config)
-      .then((response) => {
-        if(response.status === 200){
-          console.log('session storege에 저장할 값: ',response.data.nickname);
-          myStorage.setItem("nickname", response.data.nickname)
-          navigate('/home');
-        }
-      })
-      .catch((err) => console.log(err));
-  }
-
+function Login() {
   return (
     <div className={styles.login_body}>
       <div className={styles.main}>
@@ -55,21 +15,8 @@ function Login({ setSignUpPage }) {
 
         {/* 로그인 ~ 비밀번호 찾기 */}
         <div className={styles.login_box_contents}>
-          <LoginForm
-            onSubmit={loginSubmit}
-            inputType01={"text"}
-            inputType02={"password"}
-            placeholder01={"전화번호, 사용자 이름 또는 이메일"}
-            placeholder02={"비밀번호"}
-            onChange01={handleInputId}
-            onChange02={handleInputPw}
-            value01={inputId}
-            value02={inputPw}
-            btnText={"로그인"}
-          />
-
+          <LoginForm />
           <OrLine />
-
           <div className={styles.facebook_login_par}>
             <div className={styles.facebook_login}>
               <button className={styles.facebook_login_btn}>
@@ -94,12 +41,13 @@ function Login({ setSignUpPage }) {
       <div className={styles.sign_up}>
         <p className={styles.sign_up_text}>
           계정이 없으신가요?
-          <button
-            className={styles.sign_up_text_btn}
-            onClick={handleSignUpPage}
-          >
-            가입하기
-          </button>
+          <Link to={"/sign-up"}>
+            <span
+              className={styles.sign_up_text_btn}
+            >
+              가입하기
+            </span>
+          </Link>
         </p>
       </div>
 
