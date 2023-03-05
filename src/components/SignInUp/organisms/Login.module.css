@@ -85,6 +85,7 @@
     font-weight: 40;
 }
 .sign_up_text_btn{
+    margin-left: 0.5rem;
     text-decoration: none;
     color: #4AA9F8;
     font-weight: 600;
