@@ -1,8 +1,18 @@
 import styles from "./SignUp.module.css";
 import { GrFacebook } from "react-icons/gr";
+<<<<<<< HEAD
 import instaLogo from "../../../assets/img/instagram_icon.png";
 import SignUpForm from "../molecules/SignUpForm";
 import { Link } from "react-router-dom";
+=======
+import instaLogo from "../../../img/instagram_icon.png";
+import SignUpForm from "../molecules/SignUpForm";
+
+function SignUp({ setSignUpPage }) {
+  function handleSighUpPage() {
+    setSignUpPage(false);
+  }
+>>>>>>> 933e8fa (Feat: 로그인 redux 적용)
 
 function SignUp() {
   return (
