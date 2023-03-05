@@ -1,7 +1,7 @@
 import styles from './MenuBar.module.css';
-import { ReactComponent as Grid } from '../../svg/svg-grid.svg';
-import { ReactComponent as Save } from '../../svg/svg-save.svg';
-import { ReactComponent as Tag} from '../../svg/svg-tag.svg';
+import { ReactComponent as Grid } from '../../assets/svg/svg-grid.svg';
+import { ReactComponent as Save } from '../../assets/svg/svg-save.svg';
+import { ReactComponent as Tag} from '../../assets/svg/svg-tag.svg';
 
 export default function MenuBar(){
     return (

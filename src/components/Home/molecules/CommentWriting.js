@@ -1,5 +1,5 @@
 import styles from "./CommentWriting.module.css";
-import {ReactComponent as Smile} from '../../../svg/svg-smile.svg';
+import {ReactComponent as Smile} from '../../../assets/svg/svg-smile.svg';
 
 function CommentWriting({ comment, setComment, onSubmit }) {
   return (

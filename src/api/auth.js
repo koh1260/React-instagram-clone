@@ -11,7 +11,7 @@ class AuthService{
     logout(){
         return http.get('/auth/logout');
     }
-    signup(data){
+    signUp(data){
         return http.post('/auth/sign-up', data);
     }
     loginedUser(){

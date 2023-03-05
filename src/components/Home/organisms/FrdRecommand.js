@@ -1,5 +1,5 @@
 import styles from "./FrdRecommand.module.css";
-import img from "../../../img/profile.jpeg"
+import img from "../../../assets/img/profile.jpeg"
 import RecommdedFrd from "../molecules/RecommandedFrd";
 
 function FrdRecommand(){

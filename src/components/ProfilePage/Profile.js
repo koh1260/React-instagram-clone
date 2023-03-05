@@ -1,5 +1,5 @@
 import styles from './Profile.module.css';
-import { ReactComponent as Settiongs } from '../../svg/svg-setting.svg';
+import { ReactComponent as Settiongs } from '../../assets/svg/svg-setting.svg';
 
 export default function Profile({user, postsLength}) {
   return (
