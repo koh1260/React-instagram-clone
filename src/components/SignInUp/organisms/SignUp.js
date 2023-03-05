@@ -1,13 +1,10 @@
 import styles from "./SignUp.module.css";
 import { GrFacebook } from "react-icons/gr";
-import instaLogo from "../../../img/instagram_icon.png";
+import instaLogo from "../../../assets/img/instagram_icon.png";
 import SignUpForm from "../molecules/SignUpForm";
+import { Link } from "react-router-dom";
 
-function SignUp({ setSignUpPage }) {
-  function handleSighUpPage() {
-    setSignUpPage(false);
-  }
-
+function SignUp() {
   return (
     <div className={styles.sign_up_body}>
       <div className={styles.main}>
@@ -43,7 +40,7 @@ function SignUp({ setSignUpPage }) {
         </div>
 
         <div className={styles.form_div}>
-         <SignUpForm />
+          <SignUpForm />
         </div>
       </div>
 
@@ -51,12 +48,11 @@ function SignUp({ setSignUpPage }) {
       <div className={styles.sign_up}>
         <p className={styles.sign_up_text}>
           계정이 있으신가요?
-          <button
-            className={styles.sign_up_text_btn}
-            onClick={handleSighUpPage}
-          >
-            로그인
-          </button>
+          <Link to={'/'}>
+            <span className={styles.sign_in_text_btn}>
+              로그인
+            </span>
+          </Link>
         </p>
       </div>
 
