@@ -8,31 +8,27 @@ import styles from "./Home.module.css";
 import storyDummy from "../../../db/story.json";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import postService from '../../../api/post';
 import axios from "axios";
+import postSlice from "../../../redux/slice/postSlice";
 
 function Home() {
-  const [posts, setPosts] = useState([]);
-  const [openPosting, setOpenPosting] = useState(false);
+  const dispatch = useDispatch();
+  const posts = useSelector(state => state.post.posts);
+  const controlPostingModal = useSelector(state => state.post.openPostingModal);
   const nickname = window.sessionStorage.getItem("nickname");
 
   useEffect(() => {
-    const config = {
-      method: "get",
-      url: "http://localhost:4000/post/test",
-      withCredentials: true,
-    };
-
-    axios(config)
-      .then((response) => {
-        const data = response.data;
-        setPosts((currentPosts) => [...data]);
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    async function getPost(){
+      const response = await postService.followingPostsAll();
+      const posts = response.data;
+      console.log(response);
+      dispatch(postSlice.actions.setPosts({posts:posts}));
+    }
+    getPost();
   }, []);
-
+  console.log(controlPostingModal);
   return (
     <div className={styles.main}>
       {posts.length === 0 ? (
@@ -42,14 +38,12 @@ function Home() {
           <div className={styles.side_bar}>
             <SideBar 
               loginedUser={nickname}
-              setOpenPosting={setOpenPosting}/>
+              />
           </div>
           {/* 게시글 작성 모달 */}
-          {openPosting ? (
-            <Modal 
-            setOpenPosting={setOpenPosting}
-            >
-                <PostingModal setOpenPosting={setOpenPosting}/>
+          {controlPostingModal ? (
+            <Modal>
+                <PostingModal/>
             </Modal>
           ) : null}
           <div className={styles.post_and_recommand}>

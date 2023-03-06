@@ -12,10 +12,13 @@ import { GrHomeRounded } from "react-icons/gr";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiMoviePlay } from "react-icons/bi";
 import MenuBar from "./MenuBar";
+import { useDispatch, useSelector } from "react-redux";
+import postSlice from "../../../redux/slice/postSlice";
 
 
-function SideBar({setOpenPosting, loginedUser}) {
+function SideBar({loginedUser}) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [menuOpen, setMenuOpen] = useState(false);
 
   function openMeunBar() {
@@ -79,7 +82,7 @@ function SideBar({setOpenPosting, loginedUser}) {
             </span>
             <span className={styles.menu_text}>알림</span>
           </div>
-          <div onClick={() => setOpenPosting(true)} className={styles.menu}>
+          <div onClick={() => dispatch(postSlice.actions.controlPostingModal())} className={styles.menu}>
             <span>
               <FiPlusSquare className={styles.menu_icon} />
             </span>
