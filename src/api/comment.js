@@ -1,7 +1,7 @@
 import http from './http';
 
 class CommentService{
-    post(data){
+    writingComment(data){
         return http.post('/comment/writing', data);
     }
     getComments(postId){

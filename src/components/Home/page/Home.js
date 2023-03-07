@@ -6,11 +6,9 @@ import Modal from "../Modal";
 import PostingModal from "../PostingModal";
 import styles from "./Home.module.css";
 import storyDummy from "../../../db/story.json";
-import { useState } from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import postService from '../../../api/post';
-import axios from "axios";
 import postSlice from "../../../redux/slice/postSlice";
 
 function Home() {
@@ -28,7 +26,7 @@ function Home() {
     }
     getPost();
   }, []);
-  console.log(controlPostingModal);
+
   return (
     <div className={styles.main}>
       {posts.length === 0 ? (
