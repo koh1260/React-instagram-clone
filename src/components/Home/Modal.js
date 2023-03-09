@@ -1,16 +1,27 @@
 import styles from "./Modal.module.css";
-import { useDispatch } from "react-redux";
-import postSlice from "../../redux/slice/postSlice";
+import { useRef } from "react";
 
-function Modal({ children }) {
-  const dispatch = useDispatch();
+function Modal({ children, openSet }) {
+  const modalRef = useRef();
+  console.log(openSet);
+
+  // e.target은 부모에 감싸져 있더라도 클릭된 자신
+  function modalOutSideClick(e){
+    if(e.target === modalRef.current){
+      openSet(false);
+    }
+  }
 
   return (
-    <div className={styles.modal}>
+    <div 
+      className={styles.modal}
+      onClick={(e) => modalOutSideClick(e)}
+      ref={modalRef}
+      >
       {children}
       <button
         type="button"
-        onClick={() => dispatch(postSlice.actions.controlPostingModal())}
+        onClick={() => openSet(false)}
         className={styles.modal__exit}
       >
         X
