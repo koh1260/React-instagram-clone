@@ -3,6 +3,7 @@ import styles from "./ProfilePost.module.css";
 import { AiFillHeart } from "react-icons/ai";
 import { HiChatBubbleOvalLeft } from "react-icons/hi2";
 import CommentModal from "../Home/template/CommentModal";
+import Modal from "../Home/Modal";
 
 export default function ProfilePost({
   postId,
@@ -17,15 +18,16 @@ export default function ProfilePost({
   return (
     <div className={styles.main}>
       {openCommentModal ? (
-        <CommentModal
-          postId={postId}
-          user={user}
-          setOpenCommentModal={setOpenCommentModal}
-          postImage={image[0].imageUrl}
-          content={content}
-          likes={20}
-          createdAt={createdAt}
-        />
+        <Modal openSet={setOpenCommentModal}>
+          <CommentModal
+            postId={postId}
+            user={user}
+            postImage={image[0].imageUrl}
+            content={content}
+            likes={20}
+            createdAt={createdAt}
+          />
+        </Modal>
       ) : null}
       <div onClick={() => setOpenCommentModal(true)} className={styles.preview}>
         <div className={styles.like_and_comment}>

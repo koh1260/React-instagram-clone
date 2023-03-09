@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./SideBar.module.css";
 import instaLogo from "../../../assets/img/instagram_icon.png";
@@ -15,10 +15,8 @@ import MenuBar from "./MenuBar";
 import { useDispatch, useSelector } from "react-redux";
 import postSlice from "../../../redux/slice/postSlice";
 
-
-function SideBar({loginedUser}) {
+function SideBar({ loginedUser, setOpenPostingModal }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [menuOpen, setMenuOpen] = useState(false);
 
   function openMeunBar() {
@@ -44,9 +42,10 @@ function SideBar({loginedUser}) {
         <div className={styles.menus}>
           <div onClick={(i) => console.log(i)} className={styles.menu}>
             <span>
-              <GrHomeRounded 
-                onClick={() => navigate('/home')}
-                className={styles.menu_icon} />
+              <GrHomeRounded
+                onClick={() => navigate("/home")}
+                className={styles.menu_icon}
+              />
             </span>
             <span className={styles.menu_text}>홈</span>
           </div>
@@ -82,21 +81,22 @@ function SideBar({loginedUser}) {
             </span>
             <span className={styles.menu_text}>알림</span>
           </div>
-          <div onClick={() => dispatch(postSlice.actions.controlPostingModal())} className={styles.menu}>
+          <div
+            onClick={() => setOpenPostingModal(true)}
+            className={styles.menu}
+          >
             <span>
               <FiPlusSquare className={styles.menu_icon} />
             </span>
             <span className={styles.menu_text}>만들기</span>
           </div>
           <Link to={`/${loginedUser}`}>
-          <div className={styles.menu}>
-            <span>
-              <CgProfile 
-              onClick={() => navigate('/profile')}
-              className={styles.menu_icon} />
-            </span>
-            <span className={styles.menu_text}>프로필</span>
-          </div>
+            <div className={styles.menu}>
+              <span>
+                <CgProfile className={styles.menu_icon} />
+              </span>
+              <span className={styles.menu_text}>프로필</span>
+            </div>
           </Link>
         </div>
 
@@ -108,7 +108,6 @@ function SideBar({loginedUser}) {
           <span className={styles.menu_text}>더 보기</span>
         </div>
       </div>
-
     </div>
   );
 }

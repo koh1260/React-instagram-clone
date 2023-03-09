@@ -6,27 +6,27 @@ import Modal from "../Modal";
 import PostingModal from "../PostingModal";
 import styles from "./Home.module.css";
 import storyDummy from "../../../db/story.json";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import postService from '../../../api/post';
+import postService from "../../../api/post";
 import postSlice from "../../../redux/slice/postSlice";
 
 function Home() {
   const dispatch = useDispatch();
-  const posts = useSelector(state => state.post.posts);
-  const controlPostingModal = useSelector(state => state.post.openPostingModal);
+  const posts = useSelector((state) => state.post.posts);
+  const [openPosingModal, setOpenPostingModal] = useState(false);
   const nickname = window.sessionStorage.getItem("nickname");
 
   useEffect(() => {
-    async function getPost(){
+    async function getPost() {
       const response = await postService.followingPostsAll();
       const posts = response.data;
       console.log(response);
-      dispatch(postSlice.actions.setPosts({posts:posts}));
+      dispatch(postSlice.actions.setPosts({ posts: posts }));
     }
     getPost();
   }, []);
-
+  console.log(openPosingModal);
   return (
     <div className={styles.main}>
       {posts.length === 0 ? (
@@ -34,14 +34,15 @@ function Home() {
       ) : (
         <div>
           <div className={styles.side_bar}>
-            <SideBar 
+            <SideBar
+              setOpenPostingModal={setOpenPostingModal}
               loginedUser={nickname}
-              />
+            />
           </div>
           {/* 게시글 작성 모달 */}
-          {controlPostingModal ? (
-            <Modal>
-                <PostingModal/>
+          {openPosingModal ? (
+            <Modal openSet={setOpenPostingModal}>
+              <PostingModal />
             </Modal>
           ) : null}
           <div className={styles.post_and_recommand}>

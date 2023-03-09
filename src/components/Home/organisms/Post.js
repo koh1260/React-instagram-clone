@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styles from "./Post.module.css";
+import { useRef } from "react";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import CommentModal from "../template/CommentModal";
 import CommentWriting from "../molecules/CommentWriting";
 import CommentService from "../../../api/comment";
+import Modal from "../Modal";
 import {ReactComponent as Heart} from '../../../assets/svg/svg-heart.svg';
 import {ReactComponent as Bubble} from '../../../assets/svg/svg-bubble.svg';
 import {ReactComponent as Airplane} from '../../../assets/svg/svg-airplane.svg';
@@ -14,6 +16,7 @@ function Post({ user, postId, image, content, likes, createdAt, comments }) {
   const [newComment, setNewComment] = useState("");
   const [commentCount, setCommentCount] = useState(comments.length);
 
+  console.log(openCommentModal);
   async function uploadComment(e) {
     e.preventDefault();
 
@@ -64,16 +67,19 @@ function Post({ user, postId, image, content, likes, createdAt, comments }) {
               />
               {/* 댓글 모달 */}
               {openCommentModal ? (
-                <CommentModal
-                  setOpenCommentModal={setOpenCommentModal}
-                  postId={postId}
-                  user={user}
-                  content={content}
-                  likes={likes}
-                  createdAt={createdAt}
-                  comments={comments}
-                  postImage={image}
-                />
+                <Modal 
+                  openSet={setOpenCommentModal}
+                  >
+                  <CommentModal
+                    postId={postId}
+                    user={user}
+                    content={content}
+                    likes={likes}
+                    createdAt={createdAt}
+                    comments={comments}
+                    postImage={image}
+                  />
+                </Modal>
               ) : null}
             </div>
 
