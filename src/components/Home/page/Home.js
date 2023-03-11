@@ -10,42 +10,53 @@ import { useState, useEffect } from "react";
 import postService from "../../../api/post";
 import AuthService from "../../../api/auth";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import userSlice from "../../../redux/slice/userSlice";
+
 
 function Home() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [openPosingModal, setOpenPostingModal] = useState(false);
-  const nickname = window.sessionStorage.getItem("nickname");
+  const user = JSON.parse(window.sessionStorage.getItem("user"));
+
+  async function loginCheck() {
+    if (!user) return false;
+    const response = await AuthService.isLogined();
+    const isLogined = response.data.isLogined;
+
+    if (!isLogined) return false;
+    return true;
+  }
+
+  async function getPost() {
+    const isLogined = loginCheck();
+    if(!isLogined){
+      navigate('/');
+      return;
+    }
+    dispatch(userSlice.actions.setUser(user));
+    const response = await postService.followingPostsAll();
+    const posts = response.data;
+    setPosts(posts);
+  }
 
   useEffect(() => {
-    async function getPost() {
-      const loginCheckRes = await AuthService.isLogined();
-      const isLogined = loginCheckRes.data.isLogined;
-      console.log("isLogined: ", isLogined);
-      if (!isLogined) {
-        console.log("navigate");
-        navigate("/");
-        return;
-      }
-      const response = await postService.followingPostsAll();
-      const posts = response.data;
-      console.log(response);
-      setPosts(posts);
-    }
     getPost();
   }, []);
-  console.log(openPosingModal);
+
   return (
     <div className={styles.main}>
       <div>
         <div className={styles.side_bar}>
           <SideBar
             setOpenPostingModal={setOpenPostingModal}
-            loginedUser={nickname}
+            loginedUser={user}
           />
         </div>
         {posts.length === 0 ? (
-          <h1>Loading...</h1>
+          <h1 className={styles.loading}></h1>
         ) : (
           <div className={styles.post_and_recommand}>
             <div className={styles.story_and_post}>
