@@ -5,6 +5,9 @@ class AuthService{
     get(){
         return http.get('/auth/user');
     }
+    isLogined(){
+        return http.get('/auth/login-check');
+    }
     login(data){
         return http.post('/auth/login', data);
     }

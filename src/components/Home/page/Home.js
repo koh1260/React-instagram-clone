@@ -7,44 +7,46 @@ import PostingModal from "../PostingModal";
 import styles from "./Home.module.css";
 import storyDummy from "../../../db/story.json";
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import postService from "../../../api/post";
-import postSlice from "../../../redux/slice/postSlice";
+import AuthService from "../../../api/auth";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
-  const dispatch = useDispatch();
-  const posts = useSelector((state) => state.post.posts);
+  const navigate = useNavigate();
+  const [posts, setPosts] = useState([]);
   const [openPosingModal, setOpenPostingModal] = useState(false);
   const nickname = window.sessionStorage.getItem("nickname");
 
   useEffect(() => {
     async function getPost() {
+      const loginCheckRes = await AuthService.isLogined();
+      const isLogined = loginCheckRes.data.isLogined;
+      console.log("isLogined: ", isLogined);
+      if (!isLogined) {
+        console.log("navigate");
+        navigate("/");
+        return;
+      }
       const response = await postService.followingPostsAll();
       const posts = response.data;
       console.log(response);
-      dispatch(postSlice.actions.setPosts({ posts: posts }));
+      setPosts(posts);
     }
     getPost();
   }, []);
   console.log(openPosingModal);
   return (
     <div className={styles.main}>
-      {posts.length === 0 ? (
-        <h1>Loading...</h1>
-      ) : (
-        <div>
-          <div className={styles.side_bar}>
-            <SideBar
-              setOpenPostingModal={setOpenPostingModal}
-              loginedUser={nickname}
-            />
-          </div>
-          {/* 게시글 작성 모달 */}
-          {openPosingModal ? (
-            <Modal openSet={setOpenPostingModal}>
-              <PostingModal />
-            </Modal>
-          ) : null}
+      <div>
+        <div className={styles.side_bar}>
+          <SideBar
+            setOpenPostingModal={setOpenPostingModal}
+            loginedUser={nickname}
+          />
+        </div>
+        {posts.length === 0 ? (
+          <h1>Loading...</h1>
+        ) : (
           <div className={styles.post_and_recommand}>
             <div className={styles.story_and_post}>
               <div className={styles.storys}>
@@ -80,8 +82,15 @@ function Home() {
               <FrdRecommand />
             </div>
           </div>
-        </div>
-      )}
+        )}
+
+        {/* 게시글 작성 모달 */}
+        {openPosingModal ? (
+          <Modal openSet={setOpenPostingModal}>
+            <PostingModal />
+          </Modal>
+        ) : null}
+      </div>
     </div>
   );
 }
