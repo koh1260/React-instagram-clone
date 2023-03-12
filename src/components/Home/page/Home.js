@@ -13,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import userSlice from "../../../redux/slice/userSlice";
 
-
 function Home() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,9 +30,10 @@ function Home() {
   }
 
   async function getPost() {
-    const isLogined = loginCheck();
-    if(!isLogined){
-      navigate('/');
+    const isLogined = await loginCheck();
+    console.log('로그인 체크: ', isLogined);
+    if (!isLogined) {
+      navigate("/");
       return;
     }
     dispatch(userSlice.actions.setUser(user));
@@ -45,19 +45,17 @@ function Home() {
   useEffect(() => {
     getPost();
   }, []);
-
+  console.log(posts);
   return (
     <div className={styles.main}>
-      <div>
-        <div className={styles.side_bar}>
-          <SideBar
-            setOpenPostingModal={setOpenPostingModal}
-            loginedUser={user}
-          />
-        </div>
-        {posts.length === 0 ? (
-          <h1 className={styles.loading}></h1>
-        ) : (
+      {posts.length === 0 ? (
+        <h1 className={styles.loading}></h1>
+      ) : (
+        <div>
+          <div className={styles.side_bar}>
+            <SideBar setOpenPostingModal={setOpenPostingModal} />
+          </div>
+
           <div className={styles.post_and_recommand}>
             <div className={styles.story_and_post}>
               <div className={styles.storys}>
@@ -93,15 +91,15 @@ function Home() {
               <FrdRecommand />
             </div>
           </div>
-        )}
 
-        {/* 게시글 작성 모달 */}
-        {openPosingModal ? (
-          <Modal openSet={setOpenPostingModal}>
-            <PostingModal />
-          </Modal>
-        ) : null}
-      </div>
+          {/* 게시글 작성 모달 */}
+          {openPosingModal ? (
+            <Modal openSet={setOpenPostingModal}>
+              <PostingModal />
+            </Modal>
+          ) : null}
+        </div>
+      )}
     </div>
   );
 }

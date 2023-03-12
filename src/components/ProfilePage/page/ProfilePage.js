@@ -6,19 +6,24 @@ import ProfilePost from "../ProfilePost";
 import { useEffect, useState } from "react";
 import PostService from "../../../api/post";
 import AuthService from "../../../api/auth";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Modal from "../../Home/Modal";
 import PostingModal from "../../Home/PostingModal";
 
 export default function ProfilePage() {
+  const  navigate = useNavigate();
   const { nickname } = useParams();
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState();
   const [openPostingModal, setOpenPostingModal] = useState(false);
+  const userData = JSON.parse(window.sessionStorage.getItem('user'));
 
-  console.log('모달을 보여줄까 오줌놈아? ',openPostingModal);
+function loginCheck(){
+  if(!userData) navigate('/');
+}
 
   useEffect(() => {
+    loginCheck();
     async function getPosts() {
       const response = await PostService.loginedPosts();
       console.log(response);

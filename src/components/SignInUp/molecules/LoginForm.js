@@ -3,13 +3,13 @@ import SignInUpInput from "../atoms/SignInUpInput";
 import SignInUpButton from "../atoms/SignInUpButton";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import AuthService from "../../../api/auth";
 import loginSlice from "../../../redux/slice/loginSlice";
+
 //placeholder, onChange, value
 function LoginForm() {
   const navigate = useNavigate();
-  const dipatch = useDispatch();
+  const dispatch = useDispatch();
   const email = useSelector((state) => state.login.email);
   const password = useSelector((state) => state.login.password);
   const sessionStorage = window.sessionStorage;
@@ -21,11 +21,12 @@ function LoginForm() {
       password: password,
     };
     const response = await AuthService.login(userData);
+    const nickname = response.data.nickname;
     const status = response.status;
 
     if (status === 200) {
       console.log("response: ", response);
-      sessionStorage.setItem("nickname", response.data.nickname);
+      sessionStorage.setItem("user", JSON.stringify({nickname: nickname}));
       navigate("/home");
     } else {
       alert("로그인 실패");
@@ -40,7 +41,7 @@ function LoginForm() {
             inputType={"text"}
             placeholder={"전화번호, 사용자 이름 또는 이메일"}
             onChange={(e) =>
-              dipatch(loginSlice.actions.inputEmail({ email: e.target.value }))
+              dispatch(loginSlice.actions.inputEmail({ email: e.target.value }))
             }
             value={email}
           />
@@ -50,7 +51,7 @@ function LoginForm() {
             inputType={"password"}
             placeholder={"비밀번호"}
             onChange={(e) =>
-              dipatch(
+              dispatch(
                 loginSlice.actions.inputPassword({ password: e.target.value })
               )
             }
